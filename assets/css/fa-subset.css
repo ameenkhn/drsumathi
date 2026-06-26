@@ -1,0 +1,60 @@
+/* Font Awesome 6 (Free) — subset for Sudar Hospital. Only icons used on the site. */
+@font-face{font-family:"Font Awesome 6 Free";font-style:normal;font-weight:900;font-display:swap;src:url("fonts/fa-solid-900.woff2") format("woff2")}
+@font-face{font-family:"Font Awesome 6 Brands";font-style:normal;font-weight:400;font-display:swap;src:url("fonts/fa-brands-400.woff2") format("woff2")}
+.fa,.fas,.fa-solid,.fab,.fa-brands{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;display:inline-block;font-style:normal;font-variant:normal;line-height:1;text-rendering:auto}
+.fa,.fas,.fa-solid{font-family:"Font Awesome 6 Free";font-weight:900}
+.fab,.fa-brands{font-family:"Font Awesome 6 Brands";font-weight:400}
+.fa-arrow-right-long::before{content:"\f178"}
+.fa-arrow-up::before{content:"\f062"}
+.fa-award::before{content:"\f559"}
+.fa-bars-staggered::before{content:"\f550"}
+.fa-bed::before{content:"\f236"}
+.fa-bolt::before{content:"\f0e7"}
+.fa-bone::before{content:"\f5d7"}
+.fa-briefcase-medical::before{content:"\f469"}
+.fa-bullseye::before{content:"\f140"}
+.fa-calendar-check::before{content:"\f274"}
+.fa-certificate::before{content:"\f0a3"}
+.fa-check::before{content:"\f00c"}
+.fa-chevron-right::before{content:"\f054"}
+.fa-circle-check::before{content:"\f058"}
+.fa-circle-info::before{content:"\f05a"}
+.fa-clipboard-check::before{content:"\f46c"}
+.fa-clock::before{content:"\f017"}
+.fa-comment-medical::before{content:"\f7f5"}
+.fa-comments::before{content:"\f086"}
+.fa-droplet::before{content:"\f043"}
+.fa-envelope::before{content:"\f0e0"}
+.fa-eye::before{content:"\f06e"}
+.fa-eye-low-vision::before{content:"\f2a8"}
+.fa-feather::before{content:"\f52d"}
+.fa-graduation-cap::before{content:"\f19d"}
+.fa-hand-holding-droplet::before{content:"\f4c1"}
+.fa-hand-holding-heart::before{content:"\f4be"}
+.fa-hand-holding-medical::before{content:"\e05c"}
+.fa-heart-pulse::before{content:"\f21e"}
+.fa-hospital::before{content:"\f0f8"}
+.fa-hospital-user::before{content:"\f80d"}
+.fa-house-medical::before{content:"\e3b2"}
+.fa-images::before{content:"\f302"}
+.fa-indian-rupee-sign::before{content:"\e1bc"}
+.fa-layer-group::before{content:"\f5fd"}
+.fa-list-check::before{content:"\f0ae"}
+.fa-location-dot::before{content:"\f3c5"}
+.fa-microscope::before{content:"\f610"}
+.fa-people-group::before{content:"\e533"}
+.fa-person-pregnant::before{content:"\e31e"}
+.fa-phone::before{content:"\f095"}
+.fa-phone-volume::before{content:"\f2a0"}
+.fa-shield-heart::before{content:"\e574"}
+.fa-shield-virus::before{content:"\e06c"}
+.fa-star::before{content:"\f005"}
+.fa-stethoscope::before{content:"\f0f1"}
+.fa-suitcase-medical::before{content:"\f0fa"}
+.fa-user-doctor::before{content:"\f0f0"}
+.fa-user-tie::before{content:"\f508"}
+.fa-users::before{content:"\f0c0"}
+.fa-x-ray::before{content:"\f497"}
+.fa-xmark::before{content:"\f00d"}
+
+.fa-whatsapp::before{content:"\f232"}
