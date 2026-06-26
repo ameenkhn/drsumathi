@@ -32,7 +32,7 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   margin: 0;
@@ -141,8 +141,10 @@ ul { margin: 0; }
 .sd-header__cta { display: flex; align-items: center; gap: 12px; }
 .sd-burger { display: none; width: 46px; height: 46px; border: none; border-radius: 12px; background: var(--c-accent-soft); color: var(--c-primary); font-size: 20px; cursor: pointer; }
 
-/* mobile drawer */
-.sd-drawer { position: fixed; inset: 0 0 0 auto; width: min(360px, 86vw); background: #fff; z-index: 1200; transform: translateX(100%); transition: transform .35s ease; box-shadow: -20px 0 60px rgba(8,47,94,.2); display: flex; flex-direction: column; padding: 22px; overflow-y: auto; }
+/* mobile drawer — wrapped in a fixed, viewport-sized clip layer so the
+   off-canvas panel never extends the page width (prevents horizontal scroll) */
+.sd-offcanvas { position: fixed; inset: 0; overflow: hidden; pointer-events: none; z-index: 1100; }
+.sd-drawer { position: absolute; top: 0; right: 0; bottom: 0; width: min(360px, 86vw); background: #fff; z-index: 2; transform: translateX(100%); transition: transform .35s ease; box-shadow: -20px 0 60px rgba(8,47,94,.2); display: flex; flex-direction: column; padding: 22px; overflow-y: auto; pointer-events: auto; }
 .sd-drawer.is-open { transform: translateX(0); }
 .sd-drawer__head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
 .sd-drawer__close { width: 42px; height: 42px; border: none; background: var(--c-bg-soft); border-radius: 10px; font-size: 18px; color: var(--c-ink); cursor: pointer; }
@@ -153,7 +155,7 @@ ul { margin: 0; }
 .sd-drawer__contact { margin-top: 22px; font-size: 14px; display: flex; flex-direction: column; gap: 12px; }
 .sd-drawer__contact a { display: flex; gap: 12px; align-items: flex-start; color: var(--c-body); }
 .sd-drawer__contact i { color: var(--c-accent); margin-top: 3px; }
-.sd-overlay { position: fixed; inset: 0; background: rgba(6,31,63,.5); opacity: 0; visibility: hidden; transition: .3s; z-index: 1100; }
+.sd-overlay { position: absolute; inset: 0; background: rgba(6,31,63,.5); opacity: 0; visibility: hidden; transition: .3s; z-index: 1; pointer-events: auto; }
 .sd-overlay.is-open { opacity: 1; visibility: visible; }
 
 /* ============================================================
@@ -342,6 +344,18 @@ ul { margin: 0; }
 .sd-accred__card h3 { font-size: 18px; margin-bottom: 8px; }
 .sd-accred__card p { font-size: 14px; margin: 0; }
 .sd-accred__year { display: inline-block; margin-top: 12px; font-size: 12px; font-weight: 700; letter-spacing: .05em; color: var(--c-primary); background: var(--c-accent-soft); padding: 4px 12px; border-radius: 20px; }
+
+/* ============================================================
+   INSURANCE PARTNERS
+   ============================================================ */
+.sd-insurance { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px; }
+.sd-ins-card { background: #fff; border: 1px solid var(--c-line); border-radius: 14px; padding: 22px 14px 16px; box-shadow: var(--shadow-sm); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 14px; transition: transform .3s, box-shadow .3s; }
+.sd-ins-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--c-accent-soft2); }
+.sd-ins-card__logo { height: 52px; display: grid; place-items: center; }
+.sd-ins-card__logo img { max-height: 52px; max-width: 100%; width: auto; object-fit: contain; }
+.sd-ins-card span { font-size: 12.5px; color: var(--c-body); font-weight: 500; line-height: 1.35; margin-top: auto; }
+@media (max-width: 991px) { .sd-insurance { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 560px) { .sd-insurance { grid-template-columns: repeat(2, 1fr); } }
 
 /* ============================================================
    TESTIMONIALS
