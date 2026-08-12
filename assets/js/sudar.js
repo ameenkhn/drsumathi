@@ -17,12 +17,26 @@
     var drawer = document.querySelector(".sd-drawer");
     var overlay = document.querySelector(".sd-overlay");
     var closeBtn = document.querySelector(".sd-drawer__close");
-    function openDrawer() { if (drawer) drawer.classList.add("is-open"); if (overlay) overlay.classList.add("is-open"); document.body.style.overflow = "hidden"; }
-    function closeDrawer() { if (drawer) drawer.classList.remove("is-open"); if (overlay) overlay.classList.remove("is-open"); document.body.style.overflow = ""; }
-    if (burger) burger.addEventListener("click", openDrawer);
+    function openDrawer() {
+      if (drawer) drawer.classList.add("is-open");
+      if (overlay) overlay.classList.add("is-open");
+      if (burger) burger.setAttribute("aria-expanded", "true");
+      document.body.style.overflow = "hidden";
+    }
+    function closeDrawer() {
+      if (drawer) drawer.classList.remove("is-open");
+      if (overlay) overlay.classList.remove("is-open");
+      if (burger) burger.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "";
+    }
+    if (burger) { burger.setAttribute("aria-expanded", "false"); burger.addEventListener("click", openDrawer); }
     if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
     if (overlay) overlay.addEventListener("click", closeDrawer);
     if (drawer) drawer.querySelectorAll("nav a").forEach(function (a) { a.addEventListener("click", closeDrawer); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeDrawer(); });
+    /* rotating to landscape can put us past the drawer breakpoint while it is
+       still open — that would leave the body scroll-locked with no way out */
+    window.addEventListener("resize", function () { if (window.innerWidth > 1190) closeDrawer(); });
 
     /* ---- Sticky header shadow ---- */
     var header = document.querySelector(".sd-header");
@@ -57,18 +71,24 @@
       });
     });
 
-    /* answers are bilingual, so their height changes with the column width */
+    /* Answers are bilingual, so their height depends entirely on the column
+       width — measure rather than assume. This also covers items that ship
+       open in the markup, which a hard-coded max-height used to clip on narrow
+       screens. */
+    function syncOpenFaq() {
+      faqItems.forEach(function (item) {
+        if (!item.classList.contains("is-open")) return;
+        var a = item.querySelector(".sd-faq__a");
+        if (a) a.style.maxHeight = a.scrollHeight + "px";
+      });
+    }
     if (faqItems.length) {
+      syncOpenFaq();
+      window.addEventListener("load", syncOpenFaq);
       var faqResize;
       window.addEventListener("resize", function () {
         clearTimeout(faqResize);
-        faqResize = setTimeout(function () {
-          faqItems.forEach(function (item) {
-            if (!item.classList.contains("is-open")) return;
-            var a = item.querySelector(".sd-faq__a");
-            if (a) a.style.maxHeight = a.scrollHeight + "px";
-          });
-        }, 150);
+        faqResize = setTimeout(syncOpenFaq, 150);
       });
     }
 
@@ -79,11 +99,14 @@
         entries.forEach(function (e) {
           if (!e.isIntersecting) return;
           var el = e.target, target = parseFloat(el.getAttribute("data-count")), dur = 1600, start = null;
+          /* years must not pick up a thousands separator — "2,007 Serving Since" */
+          var plain = el.getAttribute("data-count-format") === "plain";
           function step(ts) {
             if (!start) start = ts;
             var p = Math.min((ts - start) / dur, 1);
             var val = Math.floor(p * target);
-            el.firstChild ? el.childNodes[0].nodeValue = val.toLocaleString("en-IN") : el.textContent = val;
+            var out = plain ? String(val) : val.toLocaleString("en-IN");
+            el.firstChild ? el.childNodes[0].nodeValue = out : el.textContent = out;
             if (p < 1) requestAnimationFrame(step);
           }
           requestAnimationFrame(step);
