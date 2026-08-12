@@ -38,21 +38,39 @@
     var topBtn = document.querySelector(".sd-top");
     if (topBtn) topBtn.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: "smooth" }); });
 
-    /* ---- FAQ accordion ---- */
-    document.querySelectorAll(".sd-faq__item").forEach(function (item) {
+    /* ---- FAQ accordion ----
+       Items open independently: the questions sit in two side-by-side columns,
+       so closing the other column's answer on every click would be jarring. */
+    var faqItems = document.querySelectorAll(".sd-faq__item");
+    faqItems.forEach(function (item) {
       var q = item.querySelector(".sd-faq__q");
       var a = item.querySelector(".sd-faq__a");
       if (!q || !a) return;
       q.addEventListener("click", function () {
-        var open = item.classList.contains("is-open");
-        document.querySelectorAll(".sd-faq__item").forEach(function (it) {
-          it.classList.remove("is-open");
-          var aa = it.querySelector(".sd-faq__a");
-          if (aa) aa.style.maxHeight = null;
-        });
-        if (!open) { item.classList.add("is-open"); a.style.maxHeight = a.scrollHeight + "px"; }
+        if (item.classList.contains("is-open")) {
+          item.classList.remove("is-open");
+          a.style.maxHeight = null;
+        } else {
+          item.classList.add("is-open");
+          a.style.maxHeight = a.scrollHeight + "px";
+        }
       });
     });
+
+    /* answers are bilingual, so their height changes with the column width */
+    if (faqItems.length) {
+      var faqResize;
+      window.addEventListener("resize", function () {
+        clearTimeout(faqResize);
+        faqResize = setTimeout(function () {
+          faqItems.forEach(function (item) {
+            if (!item.classList.contains("is-open")) return;
+            var a = item.querySelector(".sd-faq__a");
+            if (a) a.style.maxHeight = a.scrollHeight + "px";
+          });
+        }, 150);
+      });
+    }
 
     /* ---- Counter animation ---- */
     var counters = document.querySelectorAll("[data-count]");
@@ -73,22 +91,6 @@
         });
       }, { threshold: 0.4 });
       counters.forEach(function (c) { io.observe(c); });
-    }
-
-    /* ---- Contact form (no backend) ---- */
-    var form = document.querySelector("form[data-sd-form]");
-    if (form) {
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        var name = (form.querySelector("[name=name]") || {}).value || "";
-        var phone = (form.querySelector("[name=phone]") || {}).value || "";
-        var service = (form.querySelector("[name=service]") || {}).value || "";
-        var msg = (form.querySelector("[name=message]") || {}).value || "";
-        var text = "Hello Sudar Hospital, I would like to book an appointment.%0A%0AName: " +
-          encodeURIComponent(name) + "%0APhone: " + encodeURIComponent(phone) +
-          "%0ADepartment: " + encodeURIComponent(service) + "%0AMessage: " + encodeURIComponent(msg);
-        window.open("https://api.whatsapp.com/send/?phone=919360313970&text=" + text, "_blank");
-      });
     }
 
     /* ---- AOS ---- */
