@@ -148,7 +148,43 @@
       <div class="sd-head-center" data-aos="fade-up" style="margin-bottom:44px;">
         <span class="sd-eyebrow"><i class="fa-solid fa-comment-dots"></i> Share Your Experience</span>
         <h2 class="sd-title">Tell Us About Your <span class="hl">Hospitalisation</span></h2>
-        <p class="sd-lead sd-narrow">Reach us whichever way is easiest for you. Feedback sent by email or WhatsApp goes straight to our Hospital Operations Head, Dr. B. Sumathi.</p>
+        <p class="sd-lead sd-narrow">Fill in the form below and your feedback reaches our Hospital Operations Head, Dr. B. Sumathi, directly. Prefer WhatsApp, email or a phone call? Those options are just below the form.</p>
+      </div>
+
+      <!-- Patient feedback form (embedded from sudarhospital.com — see the script at the
+           foot of this page for why the close button exists) -->
+      <div class="sd-formembed" id="sdFeedback" data-aos="fade-up">
+
+        <div class="sd-formembed__intro" data-fb="intro">
+          <div class="sd-formembed__ic"><i class="fa-solid fa-comment-dots"></i></div>
+          <h3>Share your feedback</h3>
+          <p>It takes about a minute, and it reaches Dr. B. Sumathi, our Hospital Operations Head, directly.</p>
+          <button type="button" class="sd-btn sd-btn--primary" data-fb-open>Open the feedback form</button>
+        </div>
+
+        <div class="sd-formembed__live" data-fb="live" hidden>
+          <div class="sd-formembed__frame">
+            <iframe data-fb-frame
+                    data-src="https://sudarhospital.com/?init_contact=true"
+                    title="Patient feedback form — Sudar Hospital &amp; Research Institute"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allow="clipboard-write"></iframe>
+            <div class="sd-formembed__lock" data-fb-lock hidden aria-hidden="true"></div>
+          </div>
+          <div class="sd-formembed__bar">
+            <p><i class="fa-solid fa-circle-info"></i> Pressed <strong>Send Message</strong>? Close the form here.</p>
+            <button type="button" class="sd-btn sd-btn--primary" data-fb-done>I&rsquo;ve sent my feedback</button>
+          </div>
+        </div>
+
+        <div class="sd-formembed__thanks" data-fb="thanks" hidden>
+          <div class="sd-formembed__ic sd-formembed__ic--ok"><i class="fa-solid fa-circle-check"></i></div>
+          <h3>Thank you for telling us</h3>
+          <p>Your feedback goes to Dr. B. Sumathi, our Hospital Operations Head. If you left your number and asked for a call back, we will be in touch.</p>
+          <button type="button" class="sd-btn sd-btn--ghost" data-fb-again>Send another response</button>
+        </div>
+
+        <p class="sd-formembed__fallback"><i class="fa-solid fa-circle-info"></i> Form not loading? <a href="https://sudarhospital.com/?init_contact=true" target="_blank" rel="noopener">Open the feedback form in a new tab</a>.</p>
       </div>
 
       <div class="sd-grid-3">
@@ -244,10 +280,8 @@
           <ul class="sd-footer__contact">
             <li><i class="fa-solid fa-location-dot"></i> <span>1085/2 Mission Church Street, Maharnombuchavady, Thanjavur — 613001 <em>(Near Indian Bank Junction Branch)</em></span></li>
             <li><i class="fa-solid fa-phone"></i> <span><a href="tel:+919360313970">+91 93603 13970</a>, <a href="tel:+919655944103">+91 96559 44103</a></span></li>
-            <li><i class="fa-solid fa-envelope"></i> <span><a href="mailto:sudarhospital@yahoo.co.in">sudarhospital@yahoo.co.in</a> <em>(General &amp; insurance queries)</em></span></li>
-            <li><i class="fa-solid fa-envelope"></i> <span><a href="mailto:drsumathi@sudarhospital.com">drsumathi@sudarhospital.com</a> <em>(Hospital operations)</em></span></li>
-            <li><i class="fa-solid fa-briefcase"></i> <span><a href="mailto:careersudar@gmail.com">careersudar@gmail.com</a> <em>(Careers &amp; recruitment)</em></span></li>
-            <li><i class="fa-solid fa-clock"></i> <span>Mon–Sat: 10:00 AM – 7:00 PM</span></li>
+            <li><i class="fa-solid fa-envelope"></i> <span><a href="mailto:sudarhospital@yahoo.co.in">sudarhospital@yahoo.co.in</a></span></li>
+            <li><i class="fa-solid fa-clock"></i> <span>Open 24/7</span></li>
           </ul>
           <div class="sd-footer__social">
             <a href="https://api.whatsapp.com/send/?phone=919360313970" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
@@ -261,7 +295,7 @@
     <div class="sd-footer__bar">
       <div class="sd-container" style="display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; width:100%;">
         <span>© 2026 Sudar Hospital And Research Institute. All rights reserved.</span>
-        <span>NABH Accredited · CMCHIS Empanelled</span>
+        <span>NABH Accredited · CMCHIS-PMJAY Empanelled</span>
       </div>
     </div>
   </footer>
@@ -269,6 +303,59 @@
   <!--===== JS =====-->
   <script defer src="assets/js/plugins/aos.js"></script>
   <script defer src="assets/js/sudar.js"></script>
+
+  <!--===== FEEDBACK EMBED =====-->
+  <script>
+    (function () {
+      var root = document.getElementById('sdFeedback');
+      if (!root) return;
+
+      var panes = {
+        intro:  root.querySelector('[data-fb="intro"]'),
+        live:   root.querySelector('[data-fb="live"]'),
+        thanks: root.querySelector('[data-fb="thanks"]')
+      };
+      var frame = root.querySelector('[data-fb-frame]');
+      var lock  = root.querySelector('[data-fb-lock]');
+      var loads = 0;
+
+      function show(name) {
+        Object.keys(panes).forEach(function (k) { panes[k].hidden = (k !== name); });
+      }
+      function focusPane(el) {
+        if (el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      function openForm() {
+        loads = 0;
+        lock.hidden = true;
+        frame.src = frame.getAttribute('data-src');   // third party loads only on request
+        show('live');
+        focusPane(panes.live);
+      }
+
+      function finish() {
+        lock.hidden = false;             // freeze the frame straight away
+        show('thanks');
+        frame.removeAttribute('src');    // then unload the embedded site completely
+        focusPane(panes.thanks);
+      }
+
+      root.querySelector('[data-fb-open]').addEventListener('click', openForm);
+      root.querySelector('[data-fb-done]').addEventListener('click', finish);
+      root.querySelector('[data-fb-again]').addEventListener('click', openForm);
+
+      // The form is on another origin, so this page cannot see its submit event.
+      // If sending navigates the frame (an ordinary form POST) the second load fires
+      // here and we close automatically. An AJAX submit gives no signal at all —
+      // that is what the "I've sent my feedback" button is for.
+      frame.addEventListener('load', function () {
+        if (!frame.getAttribute('src')) return;   // ignore the unload in finish()
+        loads += 1;
+        if (loads > 1) finish();
+      });
+    })();
+  </script>
 </body>
 
 </html>

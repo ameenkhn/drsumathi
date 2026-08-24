@@ -150,12 +150,12 @@ ul { margin: 0; }
 
 .sd-header { position: sticky; top: 0; z-index: 1000; background: #fff; box-shadow: 0 2px 18px rgba(8,47,94,.07); transition: box-shadow .3s; }
 .sd-header.is-stuck { box-shadow: 0 6px 26px rgba(8,47,94,.13); }
-.sd-header__in { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 12px 0; }
+.sd-header__in { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 8px 0; }
 
 .sd-brand { display: inline-flex; align-items: center; gap: 13px; }
-.sd-brand__mark { width: 70px; height: 70px; flex: 0 0 auto; object-fit: contain; }
+.sd-brand__mark { width: 88px; height: 88px; flex: 0 0 auto; object-fit: contain; }
 .sd-brand__tx { display: flex; flex-direction: column; line-height: 1.12; }
-.sd-brand__tx b { font-family: var(--ff-head); font-size: 25px; font-weight: 800; color: var(--c-primary-dark); letter-spacing: -.015em; white-space: nowrap; }
+.sd-brand__tx b { font-family: var(--ff-head); font-size: 28px; font-weight: 800; color: var(--c-primary-dark); letter-spacing: -.015em; white-space: nowrap; }
 .sd-brand__tx span { font-size: 12px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: var(--c-accent); white-space: nowrap; }
 
 .sd-nav { display: flex; align-items: center; gap: 1px; }
@@ -166,6 +166,13 @@ ul { margin: 0; }
 .sd-nav a:hover, .sd-nav a.active { color: var(--c-primary); background: var(--c-accent-soft); }
 
 .sd-header__cta { display: flex; align-items: center; gap: 12px; }
+/* larger brand (client req. #1) leaves less room for the nav — keep the CTA on one line */
+.sd-header__cta .sd-btn { white-space: nowrap; flex: 0 0 auto; padding: 13px 22px; }
+@media (min-width: 1191px) and (max-width: 1460px) {
+  .sd-header__in { gap: 12px; }
+  .sd-nav a { padding: 9px 8px; font-size: 14px; }
+  .sd-header__cta .sd-btn { padding: 12px 18px; font-size: 14px; }
+}
 .sd-burger { display: none; width: 46px; height: 46px; border: none; border-radius: 12px; background: var(--c-accent-soft); color: var(--c-primary); font-size: 20px; cursor: pointer; }
 
 /* mobile drawer — wrapped in a fixed, viewport-sized clip layer so the
@@ -495,7 +502,7 @@ ul { margin: 0; }
 .sd-footer { background: var(--c-primary-darker); color: #aac3de; padding: 70px 0 0; }
 .sd-footer__grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.3fr; gap: 38px; padding-bottom: 46px; }
 .sd-footer h4 { color: #fff; font-size: 17px; margin-bottom: 20px; }
-.sd-footer .sd-brand__mark { background: #fff; border-radius: 14px; padding: 7px; width: 74px; height: 74px; }
+.sd-footer .sd-brand__mark { background: #fff; border-radius: 14px; padding: 7px; width: 90px; height: 90px; }
 .sd-footer .sd-brand__tx b { color: #fff; }
 .sd-footer .sd-brand__tx span { color: #8fd0ff; }
 .sd-footer__about p { font-size: 14.5px; margin: 18px 0; color: #9fb8d2; }
@@ -513,6 +520,8 @@ ul { margin: 0; }
 .sd-footer__social a:hover { background: var(--c-accent); color: #fff; transform: translateY(-3px); }
 .sd-footer__bar { border-top: 1px solid rgba(255,255,255,.1); padding: 20px 0; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-size: 13.5px; color: #8aa5c2; }
 .sd-footer__bar a { color: #cfe2f5; }
+/* keep the floating WhatsApp button from sitting on top of the bottom bar text */
+@media (min-width: 641px) { .sd-footer__bar { padding-bottom: 84px; } }
 
 /* ============================================================
    FLOATING WHATSAPP + scroll top
@@ -667,8 +676,8 @@ img.sd-docp__img {
 @media (max-width: 1190px) {
   .sd-nav, .sd-header__cta .sd-btn { display: none; }
   .sd-burger { display: grid; place-items: center; }
-  .sd-brand__mark { width: 62px; height: 62px; }
-  .sd-brand__tx b { font-size: 23px; }
+  .sd-brand__mark { width: 76px; height: 76px; }
+  .sd-brand__tx b { font-size: 25px; }
 }
 
 /* ---------- ≤1100 ---------- */
@@ -744,8 +753,8 @@ img.sd-docp__img {
 
   /* header: the brand mark is deliberately large on desktop — step it down so
      logo, name and burger all fit a phone header without overflowing */
-  .sd-brand__mark { width: 54px; height: 54px; }
-  .sd-brand__tx b { font-size: 19px; }
+  .sd-brand__mark { width: 64px; height: 64px; }
+  .sd-brand__tx b { font-size: 21px; }
   .sd-brand__tx span { font-size: 10px; letter-spacing: .1em; }
   .sd-topbar__info span:not(.keep), .sd-topbar { display: none; }
 
@@ -845,8 +854,8 @@ img.sd-docp__img {
 @media (max-width: 400px) {
   .sd-container { padding: 0 14px; }
   .sd-brand { gap: 9px; }
-  .sd-brand__mark { width: 48px; height: 48px; }
-  .sd-brand__tx b { font-size: 17px; }
+  .sd-brand__mark { width: 56px; height: 56px; }
+  .sd-brand__tx b { font-size: 19px; }
   .sd-brand__tx span { font-size: 10px; letter-spacing: .06em; }
   .sd-burger { width: 42px; height: 42px; }
 
@@ -930,4 +939,53 @@ img.sd-docp__img {
   .sd-header, .sd-offcanvas, .sd-wa, .sd-top, .sd-preload, .sd-hero__wave { display: none !important; }
   .sd-section { padding: 18px 0; }
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 11px; word-break: break-all; }
+}
+
+/* ===== FEEDBACK FORM EMBED =====
+   The form lives on another origin, so its submit event is invisible to this page.
+   The widget therefore has three explicit states: intro -> live -> thanks. */
+.sd-formembed { max-width: 880px; margin: 0 auto 34px; }
+.sd-formembed [hidden] { display: none !important; }
+
+.sd-formembed__intro,
+.sd-formembed__thanks {
+  text-align: center; background: #fff; border: 1px solid var(--c-line);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: 46px 28px;
+}
+.sd-formembed__ic {
+  width: 64px; height: 64px; margin: 0 auto 18px; border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--c-accent-soft); color: var(--c-primary); font-size: 26px;
+}
+.sd-formembed__ic--ok { background: #e4f6f2; color: var(--c-teal); }
+.sd-formembed__intro h3,
+.sd-formembed__thanks h3 { font-family: var(--ff-head); font-size: 24px; color: var(--c-ink); margin-bottom: 10px; }
+.sd-formembed__intro p,
+.sd-formembed__thanks p { color: var(--c-body); max-width: 500px; margin: 0 auto 22px; }
+
+.sd-formembed__frame {
+  position: relative; background: #fff; border: 1px solid var(--c-line); border-bottom: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0; overflow: hidden;
+}
+.sd-formembed__frame iframe { display: block; width: 100%; height: 780px; border: 0; }
+/* dropped over the frame the moment the patient is finished, so the site behind the
+   form can never be browsed from inside this page */
+.sd-formembed__lock { position: absolute; inset: 0; background: rgba(255,255,255,.82); }
+
+.sd-formembed__bar {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  background: var(--c-bg-soft); border: 1px solid var(--c-line);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg); padding: 16px 20px;
+}
+.sd-formembed__bar p { margin: 0; font-size: 14px; color: var(--c-body); }
+.sd-formembed__bar .sd-btn { padding: 11px 20px; font-size: 14px; white-space: nowrap; }
+
+.sd-formembed__fallback { text-align: center; font-size: 14px; color: var(--c-body); margin-top: 14px; }
+.sd-formembed__fallback a { color: var(--c-primary); font-weight: 600; }
+
+@media (max-width: 767px) {
+  .sd-formembed__frame iframe { height: 860px; }
+  .sd-formembed__bar { flex-direction: column; align-items: stretch; text-align: center; }
+  .sd-formembed__bar .sd-btn { width: 100%; }
+  .sd-formembed__intro, .sd-formembed__thanks { padding: 36px 20px; }
 }
