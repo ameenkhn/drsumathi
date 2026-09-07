@@ -151,40 +151,87 @@
         <p class="sd-lead sd-narrow">Fill in the form below and your feedback reaches our Hospital Operations Head, Dr. B. Sumathi, directly. Prefer WhatsApp, email or a phone call? Those options are just below the form.</p>
       </div>
 
-      <!-- Patient feedback form (embedded from sudarhospital.com — see the script at the
-           foot of this page for why the close button exists) -->
+      <!-- Patient feedback form. Self-contained: it composes an e-mail (or a WhatsApp
+           message) out of the fields below, so submitting never hands the patient off
+           to another website. -->
       <div class="sd-formembed" id="sdFeedback" data-aos="fade-up">
 
-        <div class="sd-formembed__intro" data-fb="intro">
-          <div class="sd-formembed__ic"><i class="fa-solid fa-comment-dots"></i></div>
-          <h3>Share your feedback</h3>
-          <p>It takes about a minute, and it reaches Dr. B. Sumathi, our Hospital Operations Head, directly.</p>
-          <button type="button" class="sd-btn sd-btn--primary" data-fb-open>Open the feedback form</button>
-        </div>
+        <form class="sd-form" id="sdFeedbackForm" novalidate>
+          <div class="row2">
+            <div class="sd-field">
+              <label for="fbName">Your name <span class="req">*</span></label>
+              <input type="text" id="fbName" name="name" autocomplete="name" placeholder="Full name" required>
+            </div>
+            <div class="sd-field">
+              <label for="fbPhone">Mobile number <span class="req">*</span></label>
+              <input type="tel" id="fbPhone" name="phone" autocomplete="tel" inputmode="tel" placeholder="+91 00000 00000" required>
+            </div>
+          </div>
+          <div class="row2">
+            <div class="sd-field">
+              <label for="fbEmail">Email <em>(optional)</em></label>
+              <input type="email" id="fbEmail" name="email" autocomplete="email" placeholder="you@example.com">
+            </div>
+            <div class="sd-field">
+              <label for="fbDate">Approximate date of visit <em>(optional)</em></label>
+              <input type="date" id="fbDate" name="date">
+            </div>
+          </div>
+          <div class="row2">
+            <div class="sd-field">
+              <label for="fbDept">Department visited</label>
+              <select id="fbDept" name="department">
+                <option value="">Select a department</option>
+                <option>General &amp; Laparoscopic Surgery</option>
+                <option>Ophthalmology</option>
+                <option>Nephrology &amp; Dialysis</option>
+                <option>Orthopaedics</option>
+                <option>Urology</option>
+                <option>Obstetrics &amp; Gynaecology</option>
+                <option>Laboratory &amp; Diagnostics</option>
+                <option>Front office / Billing</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="sd-field">
+              <label for="fbVisit">Type of visit</label>
+              <select id="fbVisit" name="visit">
+                <option value="">Select</option>
+                <option>Inpatient admission</option>
+                <option>Day-care surgery</option>
+                <option>Outpatient consultation</option>
+                <option>Dialysis session</option>
+                <option>Diagnostics only</option>
+              </select>
+            </div>
+          </div>
+          <div class="sd-field">
+            <label for="fbIpop">IP / OP number <em>(optional)</em></label>
+            <input type="text" id="fbIpop" name="ipop" placeholder="As printed on your bill or discharge summary">
+          </div>
+          <div class="sd-field">
+            <label for="fbMsg">Your feedback <span class="req">*</span></label>
+            <textarea id="fbMsg" name="message" rows="6" placeholder="What went well? What could we do better?" required></textarea>
+          </div>
 
-        <div class="sd-formembed__live" data-fb="live" hidden>
-          <div class="sd-formembed__frame">
-            <iframe data-fb-frame
-                    data-src="https://sudarhospital.com/?init_contact=true"
-                    title="Patient feedback form — Sudar Hospital &amp; Research Institute"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    allow="clipboard-write"></iframe>
-            <div class="sd-formembed__lock" data-fb-lock hidden aria-hidden="true"></div>
+          <label class="sd-check"><input type="checkbox" id="fbCall" name="callback"> <span>Please call me back about this</span></label>
+
+          <p class="sd-form__err" data-fb-err hidden role="alert"></p>
+
+          <div class="sd-form__actions">
+            <button type="submit" class="sd-btn sd-btn--primary sd-btn--lg"><i class="fa-solid fa-paper-plane"></i> Send by Email</button>
+            <button type="button" class="sd-btn sd-btn--wa sd-btn--lg" data-fb-wa><i class="fa-brands fa-whatsapp"></i> Send on WhatsApp</button>
           </div>
-          <div class="sd-formembed__bar">
-            <p><i class="fa-solid fa-circle-info"></i> Pressed <strong>Send Message</strong>? Close the form here.</p>
-            <button type="button" class="sd-btn sd-btn--primary" data-fb-done>I&rsquo;ve sent my feedback</button>
-          </div>
-        </div>
+
+          <p class="sd-form__note"><i class="fa-solid fa-circle-info"></i> Your feedback goes straight to Dr. B. Sumathi, Hospital Operations Head (<strong>drsumathi@sudarhospital.com</strong>). The form opens your own email or WhatsApp app so you can send it &mdash; nothing is stored on this website.</p>
+        </form>
 
         <div class="sd-formembed__thanks" data-fb="thanks" hidden>
           <div class="sd-formembed__ic sd-formembed__ic--ok"><i class="fa-solid fa-circle-check"></i></div>
-          <h3>Thank you for telling us</h3>
-          <p>Your feedback goes to Dr. B. Sumathi, our Hospital Operations Head. If you left your number and asked for a call back, we will be in touch.</p>
-          <button type="button" class="sd-btn sd-btn--ghost" data-fb-again>Send another response</button>
+          <h3>Almost done &mdash; press send</h3>
+          <p>Your email or WhatsApp app should have opened with your feedback filled in and addressed to Dr. B. Sumathi. <strong>Please press send there to complete it.</strong> If nothing opened, use one of the options just below and we will still receive it.</p>
+          <button type="button" class="sd-btn sd-btn--ghost" data-fb-again>Fill the form again</button>
         </div>
-
-        <p class="sd-formembed__fallback"><i class="fa-solid fa-circle-info"></i> Form not loading? <a href="https://sudarhospital.com/?init_contact=true" target="_blank" rel="noopener">Open the feedback form in a new tab</a>.</p>
       </div>
 
       <div class="sd-grid-3">
@@ -306,55 +353,87 @@
   <script defer src="assets/js/plugins/aos.js"></script>
   <script defer src="assets/js/sudar.js"></script>
 
-  <!--===== FEEDBACK EMBED =====-->
+  <!--===== FEEDBACK FORM =====-->
   <script>
     (function () {
       var root = document.getElementById('sdFeedback');
       if (!root) return;
 
-      var panes = {
-        intro:  root.querySelector('[data-fb="intro"]'),
-        live:   root.querySelector('[data-fb="live"]'),
-        thanks: root.querySelector('[data-fb="thanks"]')
-      };
-      var frame = root.querySelector('[data-fb-frame]');
-      var lock  = root.querySelector('[data-fb-lock]');
-      var loads = 0;
+      var form   = document.getElementById('sdFeedbackForm');
+      var thanks = root.querySelector('[data-fb="thanks"]');
+      var err    = root.querySelector('[data-fb-err]');
+      var MAIL   = 'drsumathi@sudarhospital.com';
+      var WA     = '919360313970';
 
-      function show(name) {
-        Object.keys(panes).forEach(function (k) { panes[k].hidden = (k !== name); });
-      }
-      function focusPane(el) {
-        if (el.scrollIntoView) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      function val(id) {
+        var el = document.getElementById(id);
+        return el ? String(el.value || '').trim() : '';
       }
 
-      function openForm() {
-        loads = 0;
-        lock.hidden = true;
-        frame.src = frame.getAttribute('data-src');   // third party loads only on request
-        show('live');
-        focusPane(panes.live);
+      // Name, mobile and the feedback itself are the only fields we insist on —
+      // everything else just helps the quality desk trace the visit.
+      function missingFields() {
+        var missing = [];
+        if (!val('fbName'))  missing.push('your name');
+        if (!val('fbPhone')) missing.push('your mobile number');
+        if (!val('fbMsg'))   missing.push('your feedback');
+        return missing;
       }
 
-      function finish() {
-        lock.hidden = false;             // freeze the frame straight away
-        show('thanks');
-        frame.removeAttribute('src');    // then unload the embedded site completely
-        focusPane(panes.thanks);
+      function body() {
+        var out = [];
+        function add(label, v) { if (v) out.push(label + ': ' + v); }
+        add('Name', val('fbName'));
+        add('Mobile', val('fbPhone'));
+        add('Email', val('fbEmail'));
+        add('Department visited', val('fbDept'));
+        add('Type of visit', val('fbVisit'));
+        add('Date of visit', val('fbDate'));
+        add('IP / OP number', val('fbIpop'));
+        out.push('Call back requested: ' + (document.getElementById('fbCall').checked ? 'Yes' : 'No'));
+        out.push('');
+        out.push('Feedback:');
+        out.push(val('fbMsg'));
+        return out.join('\n');
       }
 
-      root.querySelector('[data-fb-open]').addEventListener('click', openForm);
-      root.querySelector('[data-fb-done]').addEventListener('click', finish);
-      root.querySelector('[data-fb-again]').addEventListener('click', openForm);
+      function showError(missing) {
+        err.textContent = 'Please add ' + missing.join(', ') + ' before sending.';
+        err.hidden = false;
+        if (err.scrollIntoView) err.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
 
-      // The form is on another origin, so this page cannot see its submit event.
-      // If sending navigates the frame (an ordinary form POST) the second load fires
-      // here and we close automatically. An AJAX submit gives no signal at all —
-      // that is what the "I've sent my feedback" button is for.
-      frame.addEventListener('load', function () {
-        if (!frame.getAttribute('src')) return;   // ignore the unload in finish()
-        loads += 1;
-        if (loads > 1) finish();
+      function sent() {
+        err.hidden = true;
+        form.hidden = true;
+        thanks.hidden = false;
+        if (thanks.scrollIntoView) thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();                       // never post anywhere
+        var missing = missingFields();
+        if (missing.length) { showError(missing); return; }
+        window.location.href = 'mailto:' + MAIL
+          + '?subject=' + encodeURIComponent('Patient Feedback — ' + val('fbName'))
+          + '&body='    + encodeURIComponent(body());
+        sent();
+      });
+
+      root.querySelector('[data-fb-wa]').addEventListener('click', function () {
+        var missing = missingFields();
+        if (missing.length) { showError(missing); return; }
+        window.open('https://api.whatsapp.com/send/?phone=' + WA
+          + '&text=' + encodeURIComponent('Patient feedback for Sudar Hospital\n\n' + body()),
+          '_blank', 'noopener');
+        sent();
+      });
+
+      root.querySelector('[data-fb-again]').addEventListener('click', function () {
+        form.reset();
+        thanks.hidden = true;
+        form.hidden = false;
+        if (form.scrollIntoView) form.scrollIntoView({ behavior: 'smooth', block: 'center' });
       });
     })();
   </script>

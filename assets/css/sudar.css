@@ -197,7 +197,18 @@ ul { margin: 0; }
    ============================================================ */
 .sd-hero { position: relative; background: linear-gradient(120deg, #06203f 0%, #0a4d9c 55%, #1467b8 100%); color: #fff; overflow: hidden; }
 .sd-hero::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 80% 20%, rgba(28,142,214,.4), transparent 45%), radial-gradient(circle at 12% 90%, rgba(18,168,156,.25), transparent 40%); }
-.sd-hero__grid { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; gap: 50px; align-items: center; padding: 70px 0 84px; }
+/* Hospital logo watermark behind the hero (client req.) — decorative, sits under the content */
+.sd-hero::after {
+  content: ""; position: absolute; z-index: 0; pointer-events: none;
+  /* sits low in the hero, under the copy rather than behind it */
+  left: -60px; bottom: -34px;
+  width: 400px; height: 400px;
+  background: url("../img/sudar/logo/sudar-logo.png") no-repeat center / contain;
+  /* the mark is navy + orange; on the blue hero it only reads as a watermark in white */
+  filter: brightness(0) invert(1);
+  opacity: .08;
+}
+.sd-hero__grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: 50px; align-items: center; padding: 70px 0 84px; }
 .sd-hero__eyebrow { display: inline-flex; align-items: center; gap: 9px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18); padding: 8px 18px; border-radius: 40px; font-family: var(--ff-head); font-weight: 600; font-size: 13.5px; letter-spacing: .03em; }
 .sd-hero__eyebrow i { color: #8fd0ff; }
 .sd-hero h1 { color: #fff; font-size: clamp(32px, 5vw, 54px); font-weight: 800; margin: 22px 0 18px; }
@@ -280,6 +291,12 @@ ul { margin: 0; }
 .sd-division p { font-size: 15px; margin-bottom: 18px; }
 .sd-division__link { margin-top: auto; font-family: var(--ff-head); font-weight: 600; font-size: 14.5px; color: var(--c-primary); display: inline-flex; align-items: center; gap: 8px; }
 .sd-division__link i { transition: transform .3s; }
+/* secondary "use my own mail app" link — the primary opens Gmail web compose, which is
+   the only route that reliably lands on a compose window with the address prefilled */
+.sd-mail-alt { margin-top: 8px; display: inline-flex; align-items: center; gap: 7px;
+  font-size: 13px; font-weight: 600; color: var(--c-body); opacity: .85; }
+.sd-mail-alt:hover { color: var(--c-primary); opacity: 1; }
+.sd-mail-alt i { font-size: 12px; }
 .sd-division:hover .sd-division__link i { transform: translateX(5px); }
 
 /* compact service card */
@@ -585,6 +602,7 @@ ul { margin: 0; }
   border-radius: var(--radius-lg); padding: 34px 32px; box-shadow: var(--shadow-sm);
   text-align: center;
 }
+.sd-values-block__logo { display: block; width: 92px; height: 92px; object-fit: contain; margin: 0 auto 14px; }
 .sd-values-block > p { max-width: 720px; margin: 0 auto 22px; color: var(--c-body); }
 .sd-values-block .sd-values { justify-content: center; gap: 14px; }
 .sd-values-block .sd-value { font-size: 15.5px; padding: 12px 24px; }
@@ -699,6 +717,7 @@ img.sd-docp__img {
   .sd-section--tight { padding: 52px 0; }
 
   .sd-hero__grid { grid-template-columns: 1fr; gap: 30px; padding: 50px 0 70px; }
+  .sd-hero::after { width: 300px; height: 300px; left: -70px; bottom: -30px; opacity: .07; }
   .sd-hero__visual { max-width: min(460px, 100%); margin: 0 auto; }
   /* decorative badges hang outside the photo on desktop — tuck them back in
      once the column is centred, or they push the layout wider than the screen */
@@ -746,6 +765,8 @@ img.sd-docp__img {
 /* ---------- ≤640 — phone ---------- */
 @media (max-width: 640px) {
   html { scroll-padding-top: 86px; }
+  .sd-hero::after { width: 220px; height: 220px; left: -60px; bottom: -24px; }
+  .sd-values-block__logo { width: 76px; height: 76px; }
   body { font-size: 15px; }
   .sd-section { padding: 52px 0; }
   .sd-section--tight { padding: 44px 0; }
@@ -941,13 +962,12 @@ img.sd-docp__img {
   a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 11px; word-break: break-all; }
 }
 
-/* ===== FEEDBACK FORM EMBED =====
-   The form lives on another origin, so its submit event is invisible to this page.
-   The widget therefore has three explicit states: intro -> live -> thanks. */
+/* ===== PATIENT FEEDBACK FORM =====
+   Self-contained: the fields are composed into an e-mail or a WhatsApp message on
+   submit, so the patient is never handed off to another site. Two states: form -> thanks. */
 .sd-formembed { max-width: 880px; margin: 0 auto 34px; }
 .sd-formembed [hidden] { display: none !important; }
 
-.sd-formembed__intro,
 .sd-formembed__thanks {
   text-align: center; background: #fff; border: 1px solid var(--c-line);
   border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); padding: 46px 28px;
@@ -958,34 +978,32 @@ img.sd-docp__img {
   background: var(--c-accent-soft); color: var(--c-primary); font-size: 26px;
 }
 .sd-formembed__ic--ok { background: #e4f6f2; color: var(--c-teal); }
-.sd-formembed__intro h3,
 .sd-formembed__thanks h3 { font-family: var(--ff-head); font-size: 24px; color: var(--c-ink); margin-bottom: 10px; }
-.sd-formembed__intro p,
-.sd-formembed__thanks p { color: var(--c-body); max-width: 500px; margin: 0 auto 22px; }
+.sd-formembed__thanks p { color: var(--c-body); max-width: 520px; margin: 0 auto 22px; }
 
-.sd-formembed__frame {
-  position: relative; background: #fff; border: 1px solid var(--c-line); border-bottom: 0;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0; overflow: hidden;
+.sd-field label .req { color: #d64545; }
+.sd-field label em { font-weight: 500; color: var(--c-body); font-style: normal; }
+
+.sd-check {
+  display: flex; align-items: center; gap: 10px; margin: 2px 0 18px;
+  font-size: 14.5px; color: var(--c-ink); cursor: pointer;
 }
-.sd-formembed__frame iframe { display: block; width: 100%; height: 780px; border: 0; }
-/* dropped over the frame the moment the patient is finished, so the site behind the
-   form can never be browsed from inside this page */
-.sd-formembed__lock { position: absolute; inset: 0; background: rgba(255,255,255,.82); }
+.sd-check input { width: 18px; height: 18px; flex: 0 0 auto; accent-color: var(--c-primary); cursor: pointer; }
 
-.sd-formembed__bar {
-  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
-  background: var(--c-bg-soft); border: 1px solid var(--c-line);
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg); padding: 16px 20px;
+.sd-form__err {
+  margin: 0 0 16px; padding: 12px 16px; border-radius: 12px;
+  background: #fdecec; border: 1px solid #f5c2c2; color: #a12626;
+  font-size: 14.5px; font-weight: 600;
 }
-.sd-formembed__bar p { margin: 0; font-size: 14px; color: var(--c-body); }
-.sd-formembed__bar .sd-btn { padding: 11px 20px; font-size: 14px; white-space: nowrap; }
-
-.sd-formembed__fallback { text-align: center; font-size: 14px; color: var(--c-body); margin-top: 14px; }
-.sd-formembed__fallback a { color: var(--c-primary); font-weight: 600; }
+.sd-form__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.sd-form__actions .sd-btn { flex: 1 1 220px; justify-content: center; }
+.sd-form__note {
+  margin: 18px 0 0; font-size: 13.5px; line-height: 1.7; color: var(--c-body);
+  padding-top: 16px; border-top: 1px solid var(--c-line);
+}
+.sd-form__note i { color: var(--c-accent); margin-right: 6px; }
 
 @media (max-width: 767px) {
-  .sd-formembed__frame iframe { height: 860px; }
-  .sd-formembed__bar { flex-direction: column; align-items: stretch; text-align: center; }
-  .sd-formembed__bar .sd-btn { width: 100%; }
-  .sd-formembed__intro, .sd-formembed__thanks { padding: 36px 20px; }
+  .sd-formembed__thanks { padding: 36px 20px; }
+  .sd-form__actions .sd-btn { flex: 1 1 100%; }
 }
