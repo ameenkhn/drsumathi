@@ -424,6 +424,8 @@ ul { margin: 0; }
 /* Vision | emblem | Mission — the three things the section lead names, in one row.
    The crest is the centrepiece, so it is vertically centred between the two cards. */
 .sd-principles { display: grid; grid-template-columns: 1fr auto 1fr; gap: 26px; align-items: stretch; }
+/* mobile-only Our Values card; shown in the 991px block once the grid stacks */
+.sd-values-card { display: none; }
 .sd-principles__mark {
   align-self: center; width: 230px;
   display: flex; flex-direction: column; align-items: center; gap: 18px; text-align: center;
@@ -765,9 +767,19 @@ img.sd-docp__img {
 /* ---------- ≤991 — tablet ---------- */
 @media (max-width: 991px) {
   html { scroll-padding-top: 96px; }
+  /* stacked: the crest only works as a centrepiece between the two cards, so drop it */
   .sd-principles { grid-template-columns: 1fr; gap: 22px; }
-  .sd-principles__mark { width: 100%; margin: 4px 0; }
-  .sd-principles__mark img { width: 158px; height: 158px; }
+  .sd-principles__mark { display: none; }
+  .sd-values-card {
+    display: block; margin-top: 22px; text-align: center;
+    background: #fff; border: 1px solid var(--c-line); border-radius: var(--radius-lg);
+    padding: 30px 22px; box-shadow: var(--shadow-sm);
+  }
+  .sd-values-card img { display: block; width: 96px; height: 96px; object-fit: contain; margin: 0 auto 12px; }
+  .sd-values-card h3 { display: inline-flex; align-items: center; gap: 8px; font-size: 20px; margin-bottom: 10px; }
+  .sd-values-card h3 i { color: var(--c-accent); }
+  .sd-values-card p { max-width: 520px; margin: 0 auto 18px; color: var(--c-body); }
+  .sd-values-card .sd-values { justify-content: center; gap: 12px; }
   .sd-section { padding: 64px 0; }
   .sd-section--tight { padding: 52px 0; }
 
