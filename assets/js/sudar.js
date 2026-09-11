@@ -116,6 +116,22 @@
       counters.forEach(function (c) { io.observe(c); });
     }
 
+    /* ---- Video tour ----
+       Poster + custom play button until the visitor opts in; then the native
+       controls take over. Nothing streams before that (preload="metadata"). */
+    document.querySelectorAll(".sd-video").forEach(function (fig) {
+      var video = fig.querySelector("video");
+      var play = fig.querySelector("[data-video-play]");
+      if (!video || !play) return;
+      function started() { fig.classList.add("is-playing"); video.controls = true; }
+      play.addEventListener("click", function () {
+        started();
+        var p = video.play();
+        if (p && p.catch) p.catch(function () {});   // blocked autoplay: controls are showing anyway
+      });
+      video.addEventListener("play", started);         // e.g. keyboard / native controls
+    });
+
     /* ---- AOS ---- */
     if (window.AOS) window.AOS.init({ duration: 700, once: true, offset: 80, disable: window.innerWidth < 640 });
   });
