@@ -144,79 +144,84 @@
     </div>
   </section>
 
-  <!--===== CONTACT GRID =====-->
+  <!--===== CONTACT =====-->
+  <!-- Call panel + map up top (the two things most visitors come for), then one
+       tile per desk so each email / page reads as a destination, not a list row. -->
   <section class="sd-section">
     <div class="sd-container">
-      <div class="sd-contact__grid">
-        <!-- LEFT: info cards -->
-        <div data-aos="fade-right">
-          <div class="sd-info-card">
-            <div class="ic"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-              <h4>Our Address</h4>
-              <p>1085/2 Mission Church Street, Maharnombuchavady, Thanjavur – 613001</p>
-              <a href="https://www.google.com/maps?q=Sudar+Hospital+And+Research+Institute+Thanjavur" target="_blank" rel="noopener">(Near Indian Bank Junction Branch)</a>
-            </div>
-          </div>
-          <div class="sd-info-card">
-            <div class="ic"><i class="fa-solid fa-phone"></i></div>
-            <div>
-              <h4>Phone &amp; WhatsApp</h4>
+      <div class="sd-reach">
+        <div class="sd-reach__call" data-aos="fade-right">
+          <span class="sd-reach__kicker"><i class="fa-solid fa-headset"></i> Talk to us</span>
+          <h2>We're just a call away</h2>
+          <p class="sd-reach__lead">For appointments, admissions or directions — call, or message us on WhatsApp.</p>
+          <div class="sd-reach__nums">
+            <div class="sd-reach__group">
+              <span class="sd-reach__label"><i class="fa-solid fa-mobile-screen-button"></i> Mobile &amp; WhatsApp</span>
               <a href="tel:+919360313970">+91 93603 13970</a>
               <a href="tel:+919655944103">+91 96559 44103</a>
             </div>
-          </div>
-          <div class="sd-info-card">
-            <div class="ic"><i class="fa-solid fa-phone-volume"></i></div>
-            <div>
-              <h4>Landline</h4>
+            <div class="sd-reach__group">
+              <span class="sd-reach__label"><i class="fa-solid fa-phone-volume"></i> Landline</span>
               <a href="tel:+914362233847">04362 233847</a>
               <a href="tel:+914362233848">04362 233848</a>
             </div>
           </div>
-          <div class="sd-info-card">
-            <div class="ic"><i class="fa-solid fa-envelope"></i></div>
-            <div>
-              <h4>General &amp; Insurance Queries</h4>
-              <a href="mailto:sudarhospital@yahoo.co.in">sudarhospital@yahoo.co.in</a>
-            </div>
+          <div class="sd-reach__actions">
+            <a href="https://api.whatsapp.com/send/?phone=919360313970&amp;text=Hello%20Sudar%20Hospital%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" class="sd-btn sd-btn--wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp Us</a>
+            <a href="tel:+919360313970" class="sd-btn sd-btn--light"><i class="fa-solid fa-phone"></i> Call Now</a>
           </div>
-          <div class="sd-info-card">
-            <div class="ic"><i class="fa-solid fa-id-card"></i></div>
-            <div>
-              <h4>Hospital Operations</h4>
-              <a href="mailto:drsumathi@sudarhospital.com">drsumathi@sudarhospital.com</a>
-            </div>
-          </div>
-          <div class="sd-info-card">
-            <div class="ic"><i class="fa-solid fa-briefcase"></i></div>
-            <div>
-              <h4>Careers &amp; Recruitment</h4>
-              <a href="mailto:careersudar@gmail.com">careersudar@gmail.com</a>
-              <a href="careers.html">View openings &amp; upload your résumé →</a>
-            </div>
-          </div>
-          <div class="sd-info-card">
-            <div class="ic"><i class="fa-solid fa-comment-dots"></i></div>
-            <div>
-              <h4>Patient Feedback</h4>
-              <a href="feedback.html">Share your hospitalisation experience →</a>
-            </div>
-          </div>
-          <div class="sd-info-card">
-            <div class="ic"><i class="fa-solid fa-clock"></i></div>
-            <div>
-              <h4>Hospital Hours</h4>
-              <p>Monday – Saturday: 10:00 AM – 7:00 PM</p>
-            </div>
+          <div class="sd-reach__hours">
+            <i class="fa-solid fa-clock"></i>
+            <div><b>Hospital Hours</b><span>Monday – Saturday · 10:00 AM – 7:00 PM</span></div>
           </div>
         </div>
 
-        <!-- RIGHT: location map -->
-        <div data-aos="fade-left">
-          <div class="sd-map">
+        <div class="sd-reach__visit" data-aos="fade-left">
+          <div class="sd-reach__map">
             <iframe src="https://maps.google.com/maps?q=Sudar%20Hospital%20And%20Research%20Institute%20Thanjavur&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Sudar Hospital location map"></iframe>
           </div>
+          <div class="sd-reach__addr">
+            <div class="ic"><i class="fa-solid fa-location-dot"></i></div>
+            <div class="sd-reach__addr-text">
+              <h4>Our Address</h4>
+              <p>1085/2 Mission Church Street, Maharnombuchavady, Thanjavur – 613001</p>
+              <small>Near Indian Bank Junction Branch</small>
+            </div>
+            <a href="https://www.google.com/maps?q=Sudar+Hospital+And+Research+Institute+Thanjavur" target="_blank" rel="noopener" class="sd-btn sd-btn--primary"><i class="fa-solid fa-diamond-turn-right"></i> Get Directions</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="sd-desks">
+        <div class="sd-desks__head" data-aos="fade-up">
+          <h3>Reach the right desk</h3>
+          <p>Write to the team that can help you fastest.</p>
+        </div>
+        <div class="sd-desks__grid">
+          <a class="sd-desk" href="mailto:sudarhospital@yahoo.co.in" data-aos="fade-up">
+            <span class="sd-desk__ic"><i class="fa-solid fa-envelope"></i></span>
+            <h4>General &amp; Insurance</h4>
+            <span class="sd-desk__val">sudarhospital@yahoo.co.in</span>
+            <span class="sd-desk__go">Send an email <i class="fa-solid fa-arrow-right-long"></i></span>
+          </a>
+          <a class="sd-desk" href="mailto:drsumathi@sudarhospital.com" data-aos="fade-up" data-aos-delay="70">
+            <span class="sd-desk__ic"><i class="fa-solid fa-id-card"></i></span>
+            <h4>Hospital Operations</h4>
+            <span class="sd-desk__val">drsumathi@sudarhospital.com</span>
+            <span class="sd-desk__go">Send an email <i class="fa-solid fa-arrow-right-long"></i></span>
+          </a>
+          <a class="sd-desk" href="careers.html" data-aos="fade-up" data-aos-delay="140">
+            <span class="sd-desk__ic"><i class="fa-solid fa-briefcase"></i></span>
+            <h4>Careers &amp; Recruitment</h4>
+            <span class="sd-desk__val">careersudar@gmail.com</span>
+            <span class="sd-desk__go">View openings <i class="fa-solid fa-arrow-right-long"></i></span>
+          </a>
+          <a class="sd-desk" href="feedback.html" data-aos="fade-up" data-aos-delay="210">
+            <span class="sd-desk__ic"><i class="fa-solid fa-comment-dots"></i></span>
+            <h4>Patient Feedback</h4>
+            <span class="sd-desk__val">Tell us about your hospitalisation experience</span>
+            <span class="sd-desk__go">Share feedback <i class="fa-solid fa-arrow-right-long"></i></span>
+          </a>
         </div>
       </div>
     </div>
@@ -300,11 +305,7 @@
           <ul class="sd-footer__contact">
             <li><i class="fa-solid fa-location-dot"></i> <span>1085/2 Mission Church Street, Maharnombuchavady, Thanjavur — 613001 <em>(Near Indian Bank Junction Branch)</em></span></li>
             <li><i class="fa-solid fa-phone"></i> <span><a href="tel:+919360313970">+91 93603 13970</a>, <a href="tel:+919655944103">+91 96559 44103</a></span></li>
-            <li><i class="fa-solid fa-phone-volume"></i> <span>Landline: <a href="tel:+914362233847">04362 233847</a>, <a href="tel:+914362233848">233848</a></span></li>
-            <li><i class="fa-solid fa-envelope"></i> <span><a href="mailto:sudarhospital@yahoo.co.in">sudarhospital@yahoo.co.in</a> <em>(General &amp; insurance queries)</em></span></li>
-            <li><i class="fa-solid fa-envelope"></i> <span><a href="mailto:drsumathi@sudarhospital.com">drsumathi@sudarhospital.com</a> <em>(Hospital operations)</em></span></li>
-            <li><i class="fa-solid fa-briefcase"></i> <span><a href="mailto:careersudar@gmail.com">careersudar@gmail.com</a> <em>(Careers &amp; recruitment)</em></span></li>
-            <li><i class="fa-solid fa-clock"></i> <span>Open 24/7</span></li>
+            <li><i class="fa-solid fa-envelope"></i> <span><a href="mailto:sudarhospital@yahoo.co.in">sudarhospital@yahoo.co.in</a></span></li>
           </ul>
           <div class="sd-footer__social">
             <a href="https://api.whatsapp.com/send/?phone=919360313970" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
