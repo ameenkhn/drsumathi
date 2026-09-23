@@ -98,6 +98,12 @@ ul { margin: 0; }
 .sd-section--dark .sd-title { color: #fff; }
 .sd-section--dark .sd-title .hl { color: #7fc4ff; }
 .sd-section--dark .sd-lead { color: #cfe0f3; }
+/* marker-pen highlight for a key phrase inside lead copy */
+.sd-mark {
+  font-weight: 700; color: var(--c-primary-dark); padding: 0 4px; border-radius: 4px;
+  background: linear-gradient(transparent 55%, rgba(217,154,43,.38) 55%);
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
 .sd-section--tight { padding: 70px 0; }
 .sd-narrow { max-width: 760px; margin: 0 auto; }
 
