@@ -22,11 +22,11 @@
   <!--===== FONTS =====-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
 
   <!--===== CSS =====-->
   <link rel="stylesheet" href="assets/css/fa-subset.css">
-  <link rel="stylesheet" href="assets/css/plugins/aos.css">
   <link rel="stylesheet" href="assets/css/sudar.css">
 
   <!--===== Local Business Schema =====-->
@@ -36,7 +36,7 @@
     "@type": "Hospital",
     "name": "Sudar Hospital And Research Institute",
     "description": "NABH (Entry Level) accredited multispeciality surgical centre in Thanjavur offering general & laparoscopic surgery, ophthalmology, dialysis and more.",
-    "image": "assets/img/sudar/photos/front-photo.jpg",
+    "image": "assets/img/sudar/photos/front-photo.webp",
     "url": "https://sudarhospital.com",
     "telephone": "+919360313970",
     "medicalSpecialty": ["Surgery", "Ophthalmology", "Nephrology", "Orthopedic", "Urologic", "Gynecologic"],
@@ -54,23 +54,6 @@
 
 <body>
 
-  <!--===== PRELOADER =====-->
-  <div class="sd-preload">
-    <div class="sd-preload__inner">
-      <div class="sd-preload__badge">
-        <svg class="sd-preload__spin" viewBox="0 0 100 100" aria-hidden="true">
-          <defs><linearGradient id="sdPreGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c8ed6"/><stop offset="1" stop-color="#0a4d9c"/></linearGradient></defs>
-          <circle cx="50" cy="50" r="45" fill="none" stroke="#dbe8f4" stroke-width="5"/>
-          <circle class="arc" cx="50" cy="50" r="45" fill="none" stroke="url(#sdPreGrad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="80 220"/>
-        </svg>
-        <img src="assets/img/sudar/logo/sudar-logo.png" alt="Sudar Hospital" class="sd-preload__logo">
-      </div>
-      <div class="sd-preload__name">SUDAR HOSPITAL<span>&amp; Research Institute</span></div>
-      <svg class="sd-preload__ecg" viewBox="0 0 210 34" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 17 H66 l7 -13 l10 26 l8 -20 l6 7 H210" fill="none" stroke="#1c8ed6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-  </div>
 
   <!--===== FLOATING WHATSAPP + TOP =====-->
   <a class="sd-wa" href="https://api.whatsapp.com/send/?phone=919360313970&text=Hello%20Sudar%20Hospital%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" aria-label="Book on WhatsApp">
@@ -83,7 +66,7 @@
   <header class="sd-header">
     <div class="sd-container sd-header__in">
       <a href="index.html" class="sd-brand">
-        <img src="assets/img/sudar/logo/sudar-logo.png" alt="Sudar Hospital logo" class="sd-brand__mark">
+        <img src="assets/img/sudar/logo/sudar-logo.webp" alt="Sudar Hospital logo" class="sd-brand__mark">
         <span class="sd-brand__tx"><b>Sudar Hospital</b><span>&amp; Research Institute</span></span>
       </a>
       <nav class="sd-nav">
@@ -109,7 +92,7 @@
   <aside class="sd-drawer" aria-label="Mobile menu">
     <div class="sd-drawer__head">
       <a href="index.html" class="sd-brand">
-        <img src="assets/img/sudar/logo/sudar-logo.png" alt="Sudar Hospital logo" class="sd-brand__mark">
+        <img src="assets/img/sudar/logo/sudar-logo.webp" alt="Sudar Hospital logo" class="sd-brand__mark">
         <span class="sd-brand__tx"><b>Sudar Hospital</b><span>&amp; Research Institute</span></span>
       </a>
       <button class="sd-drawer__close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
@@ -149,8 +132,8 @@
     <div class="sd-container">
       <div class="sd-about__grid">
         <div class="sd-about__media" data-aos="fade-right">
-          <img src="assets/img/sudar/photos/front-photo.jpg" alt="Sudar Hospital And Research Institute, Thanjavur" class="main" loading="lazy" decoding="async">
-          <img src="assets/img/sudar/photos/entrance.jpg" alt="Entrance of Sudar Hospital, Thanjavur" class="accent-img" loading="lazy" decoding="async">
+          <img src="assets/img/sudar/photos/front-photo.webp" alt="Sudar Hospital And Research Institute, Thanjavur" class="main" loading="lazy" decoding="async">
+          <img src="assets/img/sudar/photos/entrance-sm.webp" alt="Entrance of Sudar Hospital, Thanjavur" class="accent-img" loading="lazy" decoding="async">
           <div class="estab"><b>2007</b><span>Established</span></div>
         </div>
         <div class="sd-about__body" data-aos="fade-left">
@@ -188,7 +171,7 @@
           <p lang="ta" style="line-height:1.85;">சர்வதேசத் தரத்தில், அதிநவீன வசதிகள் கொண்ட மல்டி ஸ்பெஷாலிட்டி அறுவைச் சிகிச்சை மையமாகத் திகழ வேண்டுமென்ற நோக்கத்தில், ஆரோக்கியத்தை நாடும், ஒவ்வொருவருக்கும், பணியில் பரிவான சேவையை அர்ப்பணிப்புடனும், பொறுப்புணர்வுடனும் வழங்கி அவர்களை மனநிறைவையும் சாந்தியையும் உணரச் செய்தலே எங்கள் தொலைநோக்கு ஆகும்.</p>
         </div>
         <div class="sd-principles__mark" data-aos="zoom-in" data-aos-delay="60">
-          <img src="assets/img/sudar/logo/sudar-logo-lg.png" alt="Sudar Hospital &amp; Research Institute logo"
+          <img src="assets/img/sudar/logo/sudar-logo-lg.webp" alt="Sudar Hospital &amp; Research Institute logo"
             width="200" height="200" loading="lazy" decoding="async">
         </div>
         <div class="sd-pc-card" data-aos="fade-up" data-aos-delay="100">
@@ -199,7 +182,7 @@
       </div>
       <!-- Our Values card (client req.), shown on all screen sizes beneath Vision | Mission. -->
       <div class="sd-values-card" data-aos="fade-up">
-        <img src="assets/img/sudar/logo/sudar-logo-lg.png" alt="" width="96" height="96" loading="lazy" decoding="async">
+        <img src="assets/img/sudar/logo/sudar-logo-lg.webp" alt="" width="96" height="96" loading="lazy" decoding="async">
         <h3><i class="fa-solid fa-shield-heart"></i> Our Values</h3>
         <p>In all our services, activity, decision and interaction, we at Sudar Hospital are constantly driven by the following values.</p>
         <div class="sd-values">
@@ -217,7 +200,7 @@
       <div class="sd-profile">
         <div class="sd-profile__media" data-aos="fade-right">
           <div style="background:linear-gradient(135deg,var(--c-accent-soft),#fff);border:1px solid var(--c-line);border-radius:var(--radius-lg);padding:30px 24px;text-align:center;box-shadow:var(--shadow-sm);margin-bottom:18px;">
-            <img src="assets/img/sudar/team/portraits/dr-sasiraj.png" alt="Dr. S. Sasiraj, Founder &amp; Chief Surgeon" class="sd-docp__img" loading="lazy" decoding="async">
+            <img src="assets/img/sudar/team/portraits/dr-sasiraj.webp" alt="Dr. S. Sasiraj, Founder &amp; Chief Surgeon" class="sd-docp__img" loading="lazy" decoding="async">
             <h3 style="margin-bottom:4px;">Dr. S. Sasiraj</h3>
             <div style="color:var(--c-primary);font-weight:600;font-family:var(--ff-head);font-size:14px;">Managing Director &amp; Chief Surgeon</div>
             <p style="font-size:13px;margin:6px 0 0;color:var(--c-body);">MBBS, MS, DNB</p>
@@ -266,7 +249,7 @@
       <div class="sd-profile">
         <div class="sd-profile__media" data-aos="fade-right">
           <div style="background:linear-gradient(135deg,var(--c-accent-soft),#fff);border:1px solid var(--c-line);border-radius:var(--radius-lg);padding:30px 24px;text-align:center;box-shadow:var(--shadow-sm);margin-bottom:18px;">
-            <img src="assets/img/sudar/team/portraits/dr-rohini.png" alt="Dr. G. Rohini, Ophthalmic Surgeon" class="sd-docp__img" loading="lazy" decoding="async">
+            <img src="assets/img/sudar/team/portraits/dr-rohini.webp" alt="Dr. G. Rohini, Ophthalmic Surgeon" class="sd-docp__img" loading="lazy" decoding="async">
             <h3 style="margin-bottom:4px;">Dr. G. Rohini</h3>
             <div style="color:var(--c-primary);font-weight:600;font-family:var(--ff-head);font-size:14px;">Ophthalmic Surgeon</div>
             <p style="font-size:13px;margin:6px 0 0;color:var(--c-body);">MBBS, D.O., DNB</p>
@@ -306,7 +289,7 @@
       <div class="sd-profile">
         <div class="sd-profile__media" data-aos="fade-right">
           <div style="background:linear-gradient(135deg,var(--c-accent-soft),#fff);border:1px solid var(--c-line);border-radius:var(--radius-lg);padding:30px 24px;text-align:center;box-shadow:var(--shadow-sm);margin-bottom:18px;">
-            <img src="assets/img/sudar/team/portraits/dr-sumathi.png" alt="Dr. B. Sumathi, Hospital Operations Head" class="sd-docp__img" loading="lazy" decoding="async">
+            <img src="assets/img/sudar/team/portraits/dr-sumathi.webp" alt="Dr. B. Sumathi, Hospital Operations Head" class="sd-docp__img" loading="lazy" decoding="async">
             <h3 style="margin-bottom:4px;">Dr. B. Sumathi</h3>
             <div style="color:var(--c-primary);font-weight:600;font-family:var(--ff-head);font-size:14px;">Hospital Operations — Head</div>
             <p style="font-size:13px;margin:6px 0 0;color:var(--c-body);">MBBS</p>
@@ -341,25 +324,25 @@
       </div>
       <div class="sd-grid-4">
         <article class="sd-docc" data-aos="fade-up">
-          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-sasiraj.png" alt="Dr. S. Sasiraj, Managing Director and Chief Surgeon" loading="lazy" decoding="async"></div>
+          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-sasiraj.webp" alt="Dr. S. Sasiraj, Managing Director and Chief Surgeon" loading="lazy" decoding="async"></div>
           <h3>Dr. S. Sasiraj</h3>
           <div class="sd-docc__role">Managing Director &amp; Chief Surgeon</div>
           <p class="sd-docc__qual">MBBS, MS, DNB — General &amp; Laparoscopic Surgeon</p>
         </article>
         <article class="sd-docc" data-aos="fade-up" data-aos-delay="80">
-          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-sumathi.png" alt="Dr. B. Sumathi, Hospital Operations Head" loading="lazy" decoding="async"></div>
+          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-sumathi.webp" alt="Dr. B. Sumathi, Hospital Operations Head" loading="lazy" decoding="async"></div>
           <h3>Dr. B. Sumathi</h3>
           <div class="sd-docc__role">Hospital Operations — Head</div>
           <p class="sd-docc__qual">MBBS</p>
         </article>
         <article class="sd-docc" data-aos="fade-up" data-aos-delay="160">
-          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-yogesh.png" alt="Dr. V. Yogesh, Nephrologist" loading="lazy" decoding="async"></div>
+          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-yogesh.webp" alt="Dr. V. Yogesh, Nephrologist" loading="lazy" decoding="async"></div>
           <h3>Dr. V. Yogesh</h3>
           <div class="sd-docc__role">Nephrologist</div>
           <p class="sd-docc__qual">MD, DNB (Nephrology)</p>
         </article>
         <article class="sd-docc" data-aos="fade-up" data-aos-delay="240">
-          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-sivaraj.png" alt="Dr. K. Sivaraj, Anaesthesiologist" loading="lazy" decoding="async"></div>
+          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-sivaraj.webp" alt="Dr. K. Sivaraj, Anaesthesiologist" loading="lazy" decoding="async"></div>
           <h3>Dr. K. Sivaraj</h3>
           <div class="sd-docc__role">Anaesthesiologist</div>
           <p class="sd-docc__qual">MD (Anaes) — Department of Anaesthesiology</p>
@@ -388,7 +371,7 @@
       <div class="sd-footer__grid">
         <div class="sd-footer__about">
           <a href="index.html" class="sd-brand">
-            <img src="assets/img/sudar/logo/sudar-logo.png" alt="Sudar Hospital logo" class="sd-brand__mark">
+            <img src="assets/img/sudar/logo/sudar-logo.webp" alt="Sudar Hospital logo" class="sd-brand__mark">
             <span class="sd-brand__tx"><b>Sudar Hospital</b><span>&amp; Research Institute</span></span>
           </a>
           <p>A NABH (Entry Level) accredited multispeciality surgical centre in Thanjavur, providing safe, advanced and affordable surgical care since 2007.</p>
@@ -446,7 +429,6 @@
   </footer>
 
   <!--===== JS =====-->
-  <script defer src="assets/js/plugins/aos.js"></script>
   <script defer src="assets/js/sudar.js"></script>
 </body>
 

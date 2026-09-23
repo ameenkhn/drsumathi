@@ -24,13 +24,11 @@
   <!--===== FONTS =====-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
-    rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
 
   <!--===== CSS =====-->
   <link rel="stylesheet" href="assets/css/fa-subset.css">
-  <link rel="stylesheet" href="assets/css/plugins/aos.css">
   <link rel="stylesheet" href="assets/css/sudar.css">
 
   <!--===== Local Business Schema =====-->
@@ -40,7 +38,7 @@
     "@type": "Hospital",
     "name": "Sudar Hospital And Research Institute",
     "description": "NABH (Entry Level) accredited multispeciality surgical centre in Thanjavur offering general & laparoscopic surgery, ophthalmology, dialysis and more.",
-    "image": "assets/img/sudar/photos/front-photo.jpg",
+    "image": "assets/img/sudar/photos/front-photo.webp",
     "url": "https://sudarhospital.com",
     "telephone": "+919360313970",
     "medicalSpecialty": ["Surgery", "Ophthalmology", "Nephrology", "Orthopedic", "Urologic", "Gynecologic"],
@@ -58,30 +56,6 @@
 
 <body>
 
-  <!--===== PRELOADER =====-->
-  <div class="sd-preload">
-    <div class="sd-preload__inner">
-      <div class="sd-preload__badge">
-        <svg class="sd-preload__spin" viewBox="0 0 100 100" aria-hidden="true">
-          <defs>
-            <linearGradient id="sdPreGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#1c8ed6" />
-              <stop offset="1" stop-color="#0a4d9c" />
-            </linearGradient>
-          </defs>
-          <circle cx="50" cy="50" r="45" fill="none" stroke="#dbe8f4" stroke-width="5" />
-          <circle class="arc" cx="50" cy="50" r="45" fill="none" stroke="url(#sdPreGrad)" stroke-width="5"
-            stroke-linecap="round" stroke-dasharray="80 220" />
-        </svg>
-        <img src="assets/img/sudar/logo/sudar-logo.png" alt="Sudar Hospital" class="sd-preload__logo">
-      </div>
-      <div class="sd-preload__name">SUDAR HOSPITAL<span>&amp; Research Institute</span></div>
-      <svg class="sd-preload__ecg" viewBox="0 0 210 34" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 17 H66 l7 -13 l10 26 l8 -20 l6 7 H210" fill="none" stroke="#1c8ed6" stroke-width="2.6"
-          stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </div>
-  </div>
 
   <!--===== FLOATING WHATSAPP + TOP =====-->
   <a class="sd-wa"
@@ -97,7 +71,7 @@
   <header class="sd-header">
     <div class="sd-container sd-header__in">
       <a href="index.html" class="sd-brand">
-        <img src="assets/img/sudar/logo/sudar-logo.png" alt="Sudar Hospital logo" class="sd-brand__mark">
+        <img src="assets/img/sudar/logo/sudar-logo.webp" alt="Sudar Hospital logo" class="sd-brand__mark">
         <span class="sd-brand__tx"><b>Sudar Hospital</b><span>&amp; Research Institute</span></span>
       </a>
       <nav class="sd-nav">
@@ -125,7 +99,7 @@
     <aside class="sd-drawer" aria-label="Mobile menu">
       <div class="sd-drawer__head">
         <a href="index.html" class="sd-brand">
-          <img src="assets/img/sudar/logo/sudar-logo.png" alt="Sudar Hospital logo" class="sd-brand__mark">
+          <img src="assets/img/sudar/logo/sudar-logo.webp" alt="Sudar Hospital logo" class="sd-brand__mark">
           <span class="sd-brand__tx"><b>Sudar Hospital</b><span>&amp; Research Institute</span></span>
         </a>
         <button class="sd-drawer__close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
@@ -188,9 +162,11 @@
           <div class="sd-hero__mark" role="presentation" aria-hidden="true"></div>
         </div>
         <div class="sd-hero__visual" data-aos="fade-left" data-aos-delay="150">
-          <img src="assets/img/sudar/photos/front-photo.jpg"
+          <img src="assets/img/sudar/photos/front-photo.webp"
+            srcset="assets/img/sudar/photos/front-photo-sm.webp 800w, assets/img/sudar/photos/front-photo.webp 1600w"
+            sizes="(max-width: 991px) min(460px, 100vw), 560px" width="1600" height="1066" fetchpriority="high"
             alt="Sudar Hospital And Research Institute building, Thanjavur" class="sd-hero__photo">
-          <div class="sd-hero__badge2"><img src="assets/img/sudar/logo/nabh-badge.png" alt="NABH Entry Level Certified">
+          <div class="sd-hero__badge2"><img src="assets/img/sudar/logo/nabh-badge.webp" alt="NABH Entry Level Certified">
             NABH (Entry Level) Accredited</div>
           <div class="sd-hero__badge">
             <span class="n">30</span>
@@ -239,10 +215,10 @@
     <div class="sd-container">
       <div class="sd-about__grid">
         <div class="sd-about__media" data-aos="fade-right">
-          <img src="assets/img/sudar/photos/hospital-building.jpg"
+          <img src="assets/img/sudar/photos/hospital-building.webp"
             alt="Front elevation of Sudar Hospital And Research Institute, Thanjavur" class="main" loading="lazy"
             decoding="async">
-          <img src="assets/img/sudar/photos/parking.jpg" alt="Spacious tree-lined parking at Sudar Hospital, Thanjavur"
+          <img src="assets/img/sudar/photos/parking-sm.webp" alt="Spacious tree-lined parking at Sudar Hospital, Thanjavur"
             class="accent-img" loading="lazy" decoding="async">
           <div class="estab"><b>2007</b><span>Established</span></div>
         </div>
@@ -295,7 +271,7 @@
             தொலைநோக்கு ஆகும்.</p>
         </div>
         <div class="sd-principles__mark" data-aos="zoom-in" data-aos-delay="60">
-          <img src="assets/img/sudar/logo/sudar-logo-lg.png" alt="Sudar Hospital &amp; Research Institute logo"
+          <img src="assets/img/sudar/logo/sudar-logo-lg.webp" alt="Sudar Hospital &amp; Research Institute logo"
             width="200" height="200" loading="lazy" decoding="async">
         </div>
         <div class="sd-pc-card" data-aos="fade-up" data-aos-delay="100">
@@ -311,7 +287,7 @@
       </div>
       <!-- Our Values card (client req.), shown on all screen sizes beneath Vision | Mission. -->
       <div class="sd-values-card" data-aos="fade-up">
-        <img src="assets/img/sudar/logo/sudar-logo-lg.png" alt="" width="96" height="96" loading="lazy" decoding="async">
+        <img src="assets/img/sudar/logo/sudar-logo-lg.webp" alt="" width="96" height="96" loading="lazy" decoding="async">
         <h3><i class="fa-solid fa-shield-heart"></i> Our Values</h3>
         <p>In all our services, activity, decision and interaction, we at Sudar Hospital are constantly driven by the following values.</p>
         <div class="sd-values">
@@ -335,7 +311,7 @@
       <!-- Poster + play button until the patient chooses to watch; nothing downloads
            beyond the header until then (preload="metadata"). -->
       <figure class="sd-video" data-aos="zoom-in">
-        <video class="sd-video__media" width="832" height="354" poster="assets/img/sudar/video/tour-poster.jpg"
+        <video class="sd-video__media" width="832" height="354" poster="assets/img/sudar/video/tour-poster.webp"
           preload="metadata" playsinline aria-label="Video tour of Sudar Hospital And Research Institute, Thanjavur">
           <source src="assets/video/sudar-hospital-tour.mp4" type="video/mp4">
           Your browser does not support embedded video.
@@ -360,7 +336,7 @@
       </div>
       <div class="sd-grid-3">
         <article class="sd-division" data-aos="fade-up">
-          <div class="sd-division__img"><img src="assets/img/sudar/photos/ot-2.jpg"
+          <div class="sd-division__img"><img src="assets/img/sudar/photos/ot-2-sm.webp"
               alt="General and laparoscopic surgery theatre" loading="lazy" decoding="async"><span
               class="sd-division__tag">Division 01</span></div>
           <div class="sd-division__body">
@@ -373,7 +349,7 @@
           </div>
         </article>
         <article class="sd-division" data-aos="fade-up" data-aos-delay="100">
-          <div class="sd-division__img"><img src="assets/img/sudar/photos/eye-ot.jpg"
+          <div class="sd-division__img"><img src="assets/img/sudar/photos/eye-ot-sm.webp"
               alt="Ophthalmology and eye care unit" loading="lazy" decoding="async"><span
               class="sd-division__tag">Division 02</span></div>
           <div class="sd-division__body">
@@ -386,7 +362,7 @@
           </div>
         </article>
         <article class="sd-division" data-aos="fade-up" data-aos-delay="200">
-          <div class="sd-division__img"><img src="assets/img/sudar/photos/dialysis.jpg" alt="24x7 dialysis centre"
+          <div class="sd-division__img"><img src="assets/img/sudar/photos/dialysis-sm.webp" alt="24x7 dialysis centre"
               loading="lazy" decoding="async"><span class="sd-division__tag">Division 03</span></div>
           <div class="sd-division__body">
             <div class="sd-division__ic"><i class="fa-solid fa-hand-holding-droplet"></i></div>
@@ -531,35 +507,35 @@
       </div>
       <div class="sd-grid-5">
         <article class="sd-docc" data-aos="fade-up">
-          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-sasiraj.png"
+          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-sasiraj.webp"
               alt="Dr. S. Sasiraj, Managing Director and Chief Surgeon" loading="lazy" decoding="async"></div>
           <h3>Dr. S. Sasiraj</h3>
           <div class="sd-docc__role">Managing Director &amp; Chief Surgeon</div>
           <p class="sd-docc__qual">MBBS, MS, DNB — General &amp; Laparoscopic Surgeon</p>
         </article>
         <article class="sd-docc" data-aos="fade-up" data-aos-delay="70">
-          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-sumathi.png"
+          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-sumathi.webp"
               alt="Dr. B. Sumathi, Hospital Operations Head" loading="lazy" decoding="async"></div>
           <h3>Dr. B. Sumathi</h3>
           <div class="sd-docc__role">Hospital Operations — Head</div>
           <p class="sd-docc__qual">MBBS</p>
         </article>
         <article class="sd-docc" data-aos="fade-up" data-aos-delay="140">
-          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-rohini.png"
+          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-rohini.webp"
               alt="Dr. G. Rohini, Eye Specialist" loading="lazy" decoding="async"></div>
           <h3>Dr. G. Rohini</h3>
           <div class="sd-docc__role">Eye Specialist</div>
           <p class="sd-docc__qual">MBBS, D.O., DNB</p>
         </article>
         <article class="sd-docc" data-aos="fade-up" data-aos-delay="210">
-          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-yogesh.png"
+          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-yogesh.webp"
               alt="Dr. V. Yogesh, Nephrologist" loading="lazy" decoding="async"></div>
           <h3>Dr. V. Yogesh</h3>
           <div class="sd-docc__role">Nephrologist</div>
           <p class="sd-docc__qual">MD, DNB (Nephrology)</p>
         </article>
         <article class="sd-docc" data-aos="fade-up" data-aos-delay="280">
-          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-sivaraj.png"
+          <div class="sd-docc__img"><img src="assets/img/sudar/team/portraits/dr-sivaraj.webp"
               alt="Dr. K. Sivaraj, Anaesthesiologist" loading="lazy" decoding="async"></div>
           <h3>Dr. K. Sivaraj</h3>
           <div class="sd-docc__role">Anaesthesiologist</div>
@@ -577,24 +553,24 @@
         <h2 class="sd-title">Modern Infrastructure for <span class="hl">Safe Surgery</span></h2>
       </div>
       <div class="sd-gallery">
-        <a href="assets/img/sudar/photos/ot-3.jpg" class="sd-gallery__item" data-aos="zoom-in"><img
-            src="assets/img/sudar/photos/ot-3.jpg" alt="Modular operation theatre at Sudar Hospital" loading="lazy"
+        <a href="assets/img/sudar/photos/ot-3.webp" class="sd-gallery__item" data-aos="zoom-in"><img
+            src="assets/img/sudar/photos/ot-3-sm.webp" alt="Modular operation theatre at Sudar Hospital" loading="lazy"
             decoding="async"><span class="sd-gallery__cap">Modular OT</span></a>
-        <a href="assets/img/sudar/photos/icu.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img
-            src="assets/img/sudar/photos/icu.jpg" alt="Intensive care unit at Sudar Hospital" loading="lazy"
+        <a href="assets/img/sudar/photos/icu.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img
+            src="assets/img/sudar/photos/icu-sm.webp" alt="Intensive care unit at Sudar Hospital" loading="lazy"
             decoding="async"><span class="sd-gallery__cap">ICU</span></a>
-        <a href="assets/img/sudar/photos/dialysis.jpg" class="sd-gallery__item" data-aos="zoom-in"
-          data-aos-delay="120"><img src="assets/img/sudar/photos/dialysis.jpg"
+        <a href="assets/img/sudar/photos/dialysis.webp" class="sd-gallery__item" data-aos="zoom-in"
+          data-aos-delay="120"><img src="assets/img/sudar/photos/dialysis-sm.webp"
             alt="24x7 dialysis unit at Sudar Hospital" loading="lazy" decoding="async"><span
             class="sd-gallery__cap">Dialysis Unit</span></a>
-        <a href="assets/img/sudar/photos/lab.jpg" class="sd-gallery__item" data-aos="zoom-in"><img
-            src="assets/img/sudar/photos/lab.jpg" alt="Diagnostic laboratory at Sudar Hospital" loading="lazy"
+        <a href="assets/img/sudar/photos/lab.webp" class="sd-gallery__item" data-aos="zoom-in"><img
+            src="assets/img/sudar/photos/lab-sm.webp" alt="Diagnostic laboratory at Sudar Hospital" loading="lazy"
             decoding="async"><span class="sd-gallery__cap">Laboratory</span></a>
-        <a href="assets/img/sudar/photos/scan.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img
-            src="assets/img/sudar/photos/scan.jpg" alt="Ultrasound room at Sudar Hospital" loading="lazy"
+        <a href="assets/img/sudar/photos/scan.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img
+            src="assets/img/sudar/photos/scan-sm.webp" alt="Ultrasound room at Sudar Hospital" loading="lazy"
             decoding="async"><span class="sd-gallery__cap">Ultrasound</span></a>
-        <a href="assets/img/sudar/photos/luxury-room.jpg" class="sd-gallery__item" data-aos="zoom-in"
-          data-aos-delay="120"><img src="assets/img/sudar/photos/luxury-room.jpg"
+        <a href="assets/img/sudar/photos/luxury-room.webp" class="sd-gallery__item" data-aos="zoom-in"
+          data-aos-delay="120"><img src="assets/img/sudar/photos/luxury-room-sm.webp"
             alt="Luxury inpatient room at Sudar Hospital" loading="lazy" decoding="async"><span
             class="sd-gallery__cap">Patient Rooms</span></a>
       </div>
@@ -616,7 +592,7 @@
       </div>
       <div class="sd-graph">
         <figure class="sd-graph__fig" data-aos="fade-right" style="margin:0;">
-          <img src="assets/img/sudar/graphs/top-surgeries.jpg"
+          <img src="assets/img/sudar/graphs/top-surgeries.webp"
             alt="Bar chart of the ten most performed surgeries at Sudar Hospital And Research Institute, Thanjavur, 2017 to 2025"
             loading="lazy" decoding="async">
           <figcaption>Sudar Hospital And Research Institute, Thanjavur · 2017–2025</figcaption>
@@ -687,24 +663,24 @@
         </div>
       </div>
       <div class="sd-certs">
-        <a href="assets/img/sudar/certificates/nabh.jpg" target="_blank" rel="noopener" class="sd-cert"
-          data-aos="zoom-in"><img src="assets/img/sudar/certificates/nabh.jpg"
+        <a href="assets/img/sudar/certificates/nabh.webp" target="_blank" rel="noopener" class="sd-cert"
+          data-aos="zoom-in"><img src="assets/img/sudar/certificates/nabh-sm.webp"
             alt="NABH Entry Level accreditation certificate — Sudar Hospital And Research Institute" loading="lazy"
             decoding="async"><b>NABH Accreditation</b><small>Entry-Level SHCO · Valid to March 2028</small><span
             class="zoom"><i class="fa-solid fa-magnifying-glass"></i> View certificate</span></a>
-        <a href="assets/img/sudar/certificates/cssd-ace.jpg" target="_blank" rel="noopener" class="sd-cert"
-          data-aos="zoom-in" data-aos-delay="80"><img src="assets/img/sudar/certificates/cssd-ace.jpg"
+        <a href="assets/img/sudar/certificates/cssd-ace.webp" target="_blank" rel="noopener" class="sd-cert"
+          data-aos="zoom-in" data-aos-delay="80"><img src="assets/img/sudar/certificates/cssd-ace-sm.webp"
             alt="CAHO ACE-CSSD certificate of recognition for sterilisation excellence" loading="lazy"
             decoding="async"><b>ACE-CSSD — CAHO</b><small>Sterilisation Excellence · Valid to April 2028</small><span
             class="zoom"><i class="fa-solid fa-magnifying-glass"></i> View certificate</span></a>
-        <a href="assets/img/sudar/certificates/i-comply.jpg" target="_blank" rel="noopener" class="sd-cert"
-          data-aos="zoom-in" data-aos-delay="160"><img src="assets/img/sudar/certificates/i-comply.jpg"
+        <a href="assets/img/sudar/certificates/i-comply.webp" target="_blank" rel="noopener" class="sd-cert"
+          data-aos="zoom-in" data-aos-delay="160"><img src="assets/img/sudar/certificates/i-comply.webp"
             alt="CAHO iCOMPLY 2026 certificate of excellence for infection prevention and control" loading="lazy"
             decoding="async"><b>iCOMPLY 2026 — CAHO</b><small>Infection Prevention &amp; Control ·
             2026–2028</small><span class="zoom"><i class="fa-solid fa-magnifying-glass"></i> View certificate</span></a>
-        <a href="assets/img/sudar/certificates/clinical-establishment.jpg" target="_blank" rel="noopener"
+        <a href="assets/img/sudar/certificates/clinical-establishment.webp" target="_blank" rel="noopener"
           class="sd-cert" data-aos="zoom-in" data-aos-delay="240"><img
-            src="assets/img/sudar/certificates/clinical-establishment.jpg"
+            src="assets/img/sudar/certificates/clinical-establishment-sm.webp"
             alt="Tamil Nadu Clinical Establishment registration renewal certificate" loading="lazy"
             decoding="async"><b>Clinical Establishment Act</b><small>Govt. of Tamil Nadu · Valid to July
             2029</small><span class="zoom"><i class="fa-solid fa-magnifying-glass"></i> View certificate</span></a>
@@ -723,76 +699,76 @@
       </div>
       <div class="sd-insurance">
         <div class="sd-ins-card" data-aos="zoom-in">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/star-health.png" alt="Star Health"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/star-health.webp" alt="Star Health"
               loading="lazy" decoding="async"></div><span>Star Health</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="40">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/care-health.png"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/care-health.webp"
               alt="Care Health Insurance" loading="lazy" decoding="async"></div><span>Care Health Insurance</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="80">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/hdfc-ergo.png" alt="HDFC ERGO"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/hdfc-ergo.webp" alt="HDFC ERGO"
               loading="lazy" decoding="async"></div><span>HDFC ERGO</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="120">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/aditya-birla.png"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/aditya-birla.webp"
               alt="Aditya Birla Health" loading="lazy" decoding="async"></div><span>Aditya Birla Health</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="160">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/tata-aig.png" alt="TATA AIG"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/tata-aig.webp" alt="TATA AIG"
               loading="lazy" decoding="async"></div><span>TATA AIG</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="200">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/sbi-general.png"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/sbi-general.webp"
               alt="SBI General Insurance" loading="lazy" decoding="async"></div><span>SBI General Insurance</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="240">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/navi.png" alt="Navi Insurance"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/navi.webp" alt="Navi Insurance"
               loading="lazy" decoding="async"></div><span>Navi Insurance</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="280">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/galaxy.png" alt="Galaxy Health Insurance"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/galaxy.webp" alt="Galaxy Health Insurance"
               loading="lazy" decoding="async"></div><span>Galaxy Health Insurance</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="320">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/religare-health.png" alt="Religare Health"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/religare-health.webp" alt="Religare Health"
               loading="lazy" decoding="async"></div><span>Religare Health</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="320">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/medi-assist-govt.png"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/medi-assist-govt.webp"
               alt="Medi Assist — Govt Schemes" loading="lazy" decoding="async"></div><span>Medi Assist — Govt
             Schemes</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="320">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/medi-assist-pvt.png"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/medi-assist-pvt.webp"
               alt="Medi Assist — Private" loading="lazy" decoding="async"></div><span>Medi Assist — Private</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="320">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/md-india.png" alt="MD India TPA"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/md-india.webp" alt="MD India TPA"
               loading="lazy" decoding="async"></div><span>MD India TPA</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="320">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/fhpl.png" alt="FHPL" loading="lazy"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/fhpl.webp" alt="FHPL" loading="lazy"
               decoding="async"></div><span>FHPL</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="320">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/heritage-health.png"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/heritage-health.webp"
               alt="Heritage Health TPA" loading="lazy" decoding="async"></div><span>Heritage Health TPA</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="320">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/raksha.png" alt="Raksha TPA"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/raksha.webp" alt="Raksha TPA"
               loading="lazy" decoding="async"></div><span>Raksha TPA</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="320">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/safeway.png" alt="Safeway Insurance TPA"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/safeway.webp" alt="Safeway Insurance TPA"
               loading="lazy" decoding="async"></div><span>Safeway Insurance TPA</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="320">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/vipul.png" alt="Vipul Med Corp TPA"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/vipul.webp" alt="Vipul Med Corp TPA"
               loading="lazy" decoding="async"></div><span>Vipul Med Corp TPA</span>
         </div>
         <div class="sd-ins-card" data-aos="zoom-in" data-aos-delay="320">
-          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/medsave.png" alt="MedSave India TPA"
+          <div class="sd-ins-card__logo"><img src="assets/img/sudar/insurance/medsave.webp" alt="MedSave India TPA"
               loading="lazy" decoding="async"></div><span>MedSave India TPA</span>
         </div>
       </div>
@@ -823,7 +799,7 @@
       <div class="sd-footer__grid">
         <div class="sd-footer__about">
           <a href="index.html" class="sd-brand">
-            <img src="assets/img/sudar/logo/sudar-logo.png" alt="Sudar Hospital logo" class="sd-brand__mark">
+            <img src="assets/img/sudar/logo/sudar-logo.webp" alt="Sudar Hospital logo" class="sd-brand__mark">
             <span class="sd-brand__tx"><b>Sudar Hospital</b><span>&amp; Research Institute</span></span>
           </a>
           <p>A NABH (Entry Level) accredited multispeciality surgical centre in Thanjavur, providing safe, advanced and affordable
@@ -891,7 +867,6 @@
   </footer>
 
   <!--===== JS =====-->
-  <script defer src="assets/js/plugins/aos.js"></script>
   <script defer src="assets/js/sudar.js"></script>
 </body>
 

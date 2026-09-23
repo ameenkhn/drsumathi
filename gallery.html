@@ -22,13 +22,12 @@
   <!--===== FONTS =====-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"></noscript>
 
   <!--===== CSS =====-->
   <link rel="stylesheet" href="assets/css/fa-subset.css">
-  <link rel="stylesheet" href="assets/css/plugins/aos.css">
   <link rel="stylesheet" href="assets/css/sudar.css">
-  <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
 
   <!--===== Local Business Schema =====-->
   <script type="application/ld+json">
@@ -37,7 +36,7 @@
     "@type": "Hospital",
     "name": "Sudar Hospital And Research Institute",
     "description": "NABH (Entry Level) accredited multispeciality surgical centre in Thanjavur offering general & laparoscopic surgery, ophthalmology, dialysis and more.",
-    "image": "assets/img/sudar/photos/front-photo.jpg",
+    "image": "assets/img/sudar/photos/front-photo.webp",
     "url": "https://sudarhospital.com",
     "telephone": "+919360313970",
     "medicalSpecialty": ["Surgery", "Ophthalmology", "Nephrology", "Orthopedic", "Urologic", "Gynecologic"],
@@ -55,23 +54,6 @@
 
 <body>
 
-  <!--===== PRELOADER =====-->
-  <div class="sd-preload">
-    <div class="sd-preload__inner">
-      <div class="sd-preload__badge">
-        <svg class="sd-preload__spin" viewBox="0 0 100 100" aria-hidden="true">
-          <defs><linearGradient id="sdPreGrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1c8ed6"/><stop offset="1" stop-color="#0a4d9c"/></linearGradient></defs>
-          <circle cx="50" cy="50" r="45" fill="none" stroke="#dbe8f4" stroke-width="5"/>
-          <circle class="arc" cx="50" cy="50" r="45" fill="none" stroke="url(#sdPreGrad)" stroke-width="5" stroke-linecap="round" stroke-dasharray="80 220"/>
-        </svg>
-        <img src="assets/img/sudar/logo/sudar-logo.png" alt="Sudar Hospital" class="sd-preload__logo">
-      </div>
-      <div class="sd-preload__name">SUDAR HOSPITAL<span>&amp; Research Institute</span></div>
-      <svg class="sd-preload__ecg" viewBox="0 0 210 34" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 17 H66 l7 -13 l10 26 l8 -20 l6 7 H210" fill="none" stroke="#1c8ed6" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-  </div>
 
   <!--===== FLOATING WHATSAPP + TOP =====-->
   <a class="sd-wa" href="https://api.whatsapp.com/send/?phone=919360313970&text=Hello%20Sudar%20Hospital%2C%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" rel="noopener" aria-label="Book on WhatsApp">
@@ -84,7 +66,7 @@
   <header class="sd-header">
     <div class="sd-container sd-header__in">
       <a href="index.html" class="sd-brand">
-        <img src="assets/img/sudar/logo/sudar-logo.png" alt="Sudar Hospital logo" class="sd-brand__mark">
+        <img src="assets/img/sudar/logo/sudar-logo.webp" alt="Sudar Hospital logo" class="sd-brand__mark">
         <span class="sd-brand__tx"><b>Sudar Hospital</b><span>&amp; Research Institute</span></span>
       </a>
       <nav class="sd-nav">
@@ -110,7 +92,7 @@
   <aside class="sd-drawer" aria-label="Mobile menu">
     <div class="sd-drawer__head">
       <a href="index.html" class="sd-brand">
-        <img src="assets/img/sudar/logo/sudar-logo.png" alt="Sudar Hospital logo" class="sd-brand__mark">
+        <img src="assets/img/sudar/logo/sudar-logo.webp" alt="Sudar Hospital logo" class="sd-brand__mark">
         <span class="sd-brand__tx"><b>Sudar Hospital</b><span>&amp; Research Institute</span></span>
       </a>
       <button class="sd-drawer__close" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
@@ -155,17 +137,17 @@
         <h2 class="sd-title" style="font-size:26px;">A Welcoming, Modern Surgical Campus</h2>
       </div>
       <div class="sd-gallery" style="margin-bottom:64px;">
-        <a href="assets/img/sudar/photos/front-photo.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/front-photo.jpg" alt="Sudar Hospital And Research Institute main building, Thanjavur" loading="lazy" decoding="async"><span class="sd-gallery__cap">Sudar Hospital</span></a>
-        <a href="assets/img/sudar/photos/entrance.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/entrance.jpg" alt="Main entrance of Sudar Hospital, Thanjavur" loading="lazy" decoding="async"><span class="sd-gallery__cap">Entrance</span></a>
-        <a href="assets/img/sudar/photos/side-view-1.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/side-view-1.jpg" alt="Side view of the Sudar Hospital building with wall murals" loading="lazy" decoding="async"><span class="sd-gallery__cap">Side View</span></a>
-        <a href="assets/img/sudar/photos/side-view-2.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/side-view-2.jpg" alt="Campus walkway at Sudar Hospital, Thanjavur" loading="lazy" decoding="async"><span class="sd-gallery__cap">Campus Walkway</span></a>
-        <a href="assets/img/sudar/photos/parking.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="240"><img src="assets/img/sudar/photos/parking.jpg" alt="On-site patient and visitor parking at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Parking</span></a>
-        <a href="assets/img/sudar/photos/garden.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="300"><img src="assets/img/sudar/photos/garden.jpg" alt="Landscaped garden at Sudar Hospital, Thanjavur" loading="lazy" decoding="async"><span class="sd-gallery__cap">Garden</span></a>
-        <a href="assets/img/sudar/photos/reception.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/reception.jpg" alt="Reception desk at Sudar Hospital, Thanjavur" loading="lazy" decoding="async"><span class="sd-gallery__cap">Reception</span></a>
-        <a href="assets/img/sudar/photos/billing.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="420"><img src="assets/img/sudar/photos/billing.jpg" alt="Billing and admission counter at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Billing Counter</span></a>
-        <a href="assets/img/sudar/photos/first-floor.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="480"><img src="assets/img/sudar/photos/first-floor.jpg" alt="First floor corridor at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">First Floor</span></a>
-        <a href="assets/img/sudar/photos/second-floor.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/second-floor.jpg" alt="Second floor atrium at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Second Floor</span></a>
-        <a href="assets/img/sudar/photos/canteen.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="600"><img src="assets/img/sudar/photos/canteen.jpg" alt="Patient and visitor canteen at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Canteen</span></a>
+        <a href="assets/img/sudar/photos/front-photo.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/front-photo-sm.webp" alt="Sudar Hospital And Research Institute main building, Thanjavur" loading="lazy" decoding="async"><span class="sd-gallery__cap">Sudar Hospital</span></a>
+        <a href="assets/img/sudar/photos/entrance.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/entrance-sm.webp" alt="Main entrance of Sudar Hospital, Thanjavur" loading="lazy" decoding="async"><span class="sd-gallery__cap">Entrance</span></a>
+        <a href="assets/img/sudar/photos/side-view-1.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/side-view-1-sm.webp" alt="Side view of the Sudar Hospital building with wall murals" loading="lazy" decoding="async"><span class="sd-gallery__cap">Side View</span></a>
+        <a href="assets/img/sudar/photos/side-view-2.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/side-view-2-sm.webp" alt="Campus walkway at Sudar Hospital, Thanjavur" loading="lazy" decoding="async"><span class="sd-gallery__cap">Campus Walkway</span></a>
+        <a href="assets/img/sudar/photos/parking.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="240"><img src="assets/img/sudar/photos/parking-sm.webp" alt="On-site patient and visitor parking at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Parking</span></a>
+        <a href="assets/img/sudar/photos/garden.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="300"><img src="assets/img/sudar/photos/garden-sm.webp" alt="Landscaped garden at Sudar Hospital, Thanjavur" loading="lazy" decoding="async"><span class="sd-gallery__cap">Garden</span></a>
+        <a href="assets/img/sudar/photos/reception.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/reception-sm.webp" alt="Reception desk at Sudar Hospital, Thanjavur" loading="lazy" decoding="async"><span class="sd-gallery__cap">Reception</span></a>
+        <a href="assets/img/sudar/photos/billing.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="420"><img src="assets/img/sudar/photos/billing-sm.webp" alt="Billing and admission counter at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Billing Counter</span></a>
+        <a href="assets/img/sudar/photos/first-floor.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="480"><img src="assets/img/sudar/photos/first-floor-sm.webp" alt="First floor corridor at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">First Floor</span></a>
+        <a href="assets/img/sudar/photos/second-floor.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/second-floor-sm.webp" alt="Second floor atrium at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Second Floor</span></a>
+        <a href="assets/img/sudar/photos/canteen.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="600"><img src="assets/img/sudar/photos/canteen-sm.webp" alt="Patient and visitor canteen at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Canteen</span></a>
       </div>
 
       <!-- Operation Theatres -->
@@ -174,10 +156,10 @@
         <h2 class="sd-title" style="font-size:26px;">Modular Theatres Built for Safe Surgery</h2>
       </div>
       <div class="sd-gallery" style="margin-bottom:64px;">
-        <a href="assets/img/sudar/photos/ot-2.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/ot-2.jpg" alt="Operation theatre 1 at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">OT 1</span></a>
-        <a href="assets/img/sudar/photos/ot-3.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/ot-3.jpg" alt="Operation theatre 2 at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">OT 2</span></a>
-        <a href="assets/img/sudar/photos/eye-ot.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/eye-ot.jpg" alt="Operation theatre 3 — ophthalmic theatre at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">OT 3</span></a>
-        <a href="assets/img/sudar/photos/ot-pharmacy.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/ot-pharmacy.jpg" alt="Operation theatre pharmacy at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">OT Pharmacy</span></a>
+        <a href="assets/img/sudar/photos/ot-2.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/ot-2-sm.webp" alt="Operation theatre 1 at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">OT 1</span></a>
+        <a href="assets/img/sudar/photos/ot-3.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/ot-3-sm.webp" alt="Operation theatre 2 at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">OT 2</span></a>
+        <a href="assets/img/sudar/photos/eye-ot.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/eye-ot-sm.webp" alt="Operation theatre 3 — ophthalmic theatre at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">OT 3</span></a>
+        <a href="assets/img/sudar/photos/ot-pharmacy.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/ot-pharmacy-sm.webp" alt="Operation theatre pharmacy at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">OT Pharmacy</span></a>
       </div>
 
       <!-- Critical & Inpatient Care -->
@@ -186,9 +168,9 @@
         <h2 class="sd-title" style="font-size:26px;">Comfortable Rooms &amp; Round-the-Clock ICU</h2>
       </div>
       <div class="sd-gallery" style="margin-bottom:64px;">
-        <a href="assets/img/sudar/photos/icu.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/icu.jpg" alt="Intensive care unit (ICU) at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">ICU</span></a>
-        <a href="assets/img/sudar/photos/luxury-room.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/luxury-room.jpg" alt="Luxury inpatient room at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Luxury Room</span></a>
-        <a href="assets/img/sudar/photos/single-room.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/single-room.jpg" alt="Single inpatient room at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Single Room</span></a>
+        <a href="assets/img/sudar/photos/icu.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/icu-sm.webp" alt="Intensive care unit (ICU) at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">ICU</span></a>
+        <a href="assets/img/sudar/photos/luxury-room.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/luxury-room-sm.webp" alt="Luxury inpatient room at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Luxury Room</span></a>
+        <a href="assets/img/sudar/photos/single-room.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/single-room-sm.webp" alt="Single inpatient room at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Single Room</span></a>
       </div>
 
       <!-- Dialysis & Nephrology -->
@@ -197,9 +179,9 @@
         <h2 class="sd-title" style="font-size:26px;">24×7 Dialysis with Strict Infection Control</h2>
       </div>
       <div class="sd-gallery" style="margin-bottom:64px;">
-        <a href="assets/img/sudar/photos/dialysis.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/dialysis.jpg" alt="24x7 dialysis unit at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Dialysis Unit</span></a>
-        <a href="assets/img/sudar/photos/dialysis-ro-plant.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/dialysis-ro-plant.jpg" alt="Dedicated reverse-osmosis water plant for the dialysis unit" loading="lazy" decoding="async"><span class="sd-gallery__cap">Dialysis RO Plant</span></a>
-        <a href="assets/img/sudar/photos/drinking-water-ro-plant.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/drinking-water-ro-plant.jpg" alt="Drinking water reverse-osmosis plant at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Drinking Water RO Plant</span></a>
+        <a href="assets/img/sudar/photos/dialysis.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/dialysis-sm.webp" alt="24x7 dialysis unit at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Dialysis Unit</span></a>
+        <a href="assets/img/sudar/photos/dialysis-ro-plant.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/dialysis-ro-plant-sm.webp" alt="Dedicated reverse-osmosis water plant for the dialysis unit" loading="lazy" decoding="async"><span class="sd-gallery__cap">Dialysis RO Plant</span></a>
+        <a href="assets/img/sudar/photos/drinking-water-ro-plant.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/drinking-water-ro-plant-sm.webp" alt="Drinking water reverse-osmosis plant at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Drinking Water RO Plant</span></a>
       </div>
 
       <!-- Diagnostics & Imaging -->
@@ -208,12 +190,12 @@
         <h2 class="sd-title" style="font-size:26px;">Complete In-House Diagnostics</h2>
       </div>
       <div class="sd-gallery" style="margin-bottom:64px;">
-        <a href="assets/img/sudar/photos/lab.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/lab.jpg" alt="Diagnostic laboratory at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Laboratory</span></a>
-        <a href="assets/img/sudar/photos/ct.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/ct.jpg" alt="CT scan imaging facility at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">CT Scan</span></a>
-        <a href="assets/img/sudar/photos/scan.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/scan.jpg" alt="Ultrasound room at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Ultrasound</span></a>
-        <a href="assets/img/sudar/photos/xray.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/xray.jpg" alt="X-ray imaging facility at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">X-Ray</span></a>
-        <a href="assets/img/sudar/photos/ecg.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="240"><img src="assets/img/sudar/photos/ecg.jpg" alt="ECG cardiac testing equipment at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">ECG</span></a>
-        <a href="assets/img/sudar/photos/tmt.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="300"><img src="assets/img/sudar/photos/tmt.jpg" alt="Treadmill TMT cardiac stress test machine at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">TMT</span></a>
+        <a href="assets/img/sudar/photos/lab.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/lab-sm.webp" alt="Diagnostic laboratory at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Laboratory</span></a>
+        <a href="assets/img/sudar/photos/ct.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/ct-sm.webp" alt="CT scan imaging facility at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">CT Scan</span></a>
+        <a href="assets/img/sudar/photos/scan.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/scan-sm.webp" alt="Ultrasound room at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Ultrasound</span></a>
+        <a href="assets/img/sudar/photos/xray.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/xray.webp" alt="X-ray imaging facility at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">X-Ray</span></a>
+        <a href="assets/img/sudar/photos/ecg.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="240"><img src="assets/img/sudar/photos/ecg.webp" alt="ECG cardiac testing equipment at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">ECG</span></a>
+        <a href="assets/img/sudar/photos/tmt.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="300"><img src="assets/img/sudar/photos/tmt-sm.webp" alt="Treadmill TMT cardiac stress test machine at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">TMT</span></a>
       </div>
 
       <!-- Eye Care -->
@@ -222,9 +204,9 @@
         <h2 class="sd-title" style="font-size:26px;">Dedicated Ophthalmic &amp; Optical Services</h2>
       </div>
       <div class="sd-gallery" style="margin-bottom:64px;">
-        <a href="assets/img/sudar/photos/eye.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/eye.jpg" alt="Eye examination at the Sudar Hospital ophthalmic unit" loading="lazy" decoding="async"><span class="sd-gallery__cap">Eye Examination</span></a>
-        <a href="assets/img/sudar/photos/eye-reception.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/eye-reception.jpg" alt="Eye OPD reception area at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Eye OPD Reception</span></a>
-        <a href="assets/img/sudar/photos/opticals.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/opticals.jpg" alt="Optical store at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Opticals</span></a>
+        <a href="assets/img/sudar/photos/eye.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/eye.webp" alt="Eye examination at the Sudar Hospital ophthalmic unit" loading="lazy" decoding="async"><span class="sd-gallery__cap">Eye Examination</span></a>
+        <a href="assets/img/sudar/photos/eye-reception.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/eye-reception.webp" alt="Eye OPD reception area at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Eye OPD Reception</span></a>
+        <a href="assets/img/sudar/photos/opticals.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/opticals-sm.webp" alt="Optical store at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Opticals</span></a>
       </div>
 
       <!-- Support Services -->
@@ -233,11 +215,11 @@
         <h2 class="sd-title" style="font-size:26px;">Pharmacy, Sterilisation &amp; Utilities, Done Right</h2>
       </div>
       <div class="sd-gallery">
-        <a href="assets/img/sudar/photos/pharmacy.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/pharmacy.jpg" alt="In-house pharmacy at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Pharmacy</span></a>
-        <a href="assets/img/sudar/photos/cssd.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/cssd.jpg" alt="Central Sterile Supply Department at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Central Sterile Supply Department (CSSD)</span></a>
-        <a href="assets/img/sudar/photos/eto.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/eto.jpg" alt="Ethylene oxide (ETO) steriliser at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">ETO Sterilisation</span></a>
-        <a href="assets/img/sudar/photos/washing-area.jpg" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/washing-area.jpg" alt="Clean washing area at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Clean Washing Area</span></a>
-        <a href="assets/img/sudar/photos/o2-plant.jpg" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="240"><img src="assets/img/sudar/photos/o2-plant.jpg" alt="In-house medical oxygen plant at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Oxygen Plant</span></a>
+        <a href="assets/img/sudar/photos/pharmacy.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/pharmacy-sm.webp" alt="In-house pharmacy at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Pharmacy</span></a>
+        <a href="assets/img/sudar/photos/cssd.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="60"><img src="assets/img/sudar/photos/cssd-sm.webp" alt="Central Sterile Supply Department at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Central Sterile Supply Department (CSSD)</span></a>
+        <a href="assets/img/sudar/photos/eto.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="120"><img src="assets/img/sudar/photos/eto-sm.webp" alt="Ethylene oxide (ETO) steriliser at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">ETO Sterilisation</span></a>
+        <a href="assets/img/sudar/photos/washing-area.webp" class="sd-gallery__item" data-aos="zoom-in"><img src="assets/img/sudar/photos/washing-area-sm.webp" alt="Clean washing area at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Clean Washing Area</span></a>
+        <a href="assets/img/sudar/photos/o2-plant.webp" class="sd-gallery__item" data-aos="zoom-in" data-aos-delay="240"><img src="assets/img/sudar/photos/o2-plant-sm.webp" alt="In-house medical oxygen plant at Sudar Hospital" loading="lazy" decoding="async"><span class="sd-gallery__cap">Oxygen Plant</span></a>
       </div>
 
     </div>
@@ -263,7 +245,7 @@
       <div class="sd-footer__grid">
         <div class="sd-footer__about">
           <a href="index.html" class="sd-brand">
-            <img src="assets/img/sudar/logo/sudar-logo.png" alt="Sudar Hospital logo" class="sd-brand__mark">
+            <img src="assets/img/sudar/logo/sudar-logo.webp" alt="Sudar Hospital logo" class="sd-brand__mark">
             <span class="sd-brand__tx"><b>Sudar Hospital</b><span>&amp; Research Institute</span></span>
           </a>
           <p>A NABH (Entry Level) accredited multispeciality surgical centre in Thanjavur, providing safe, advanced and affordable surgical care since 2007.</p>
@@ -321,17 +303,6 @@
   </footer>
 
   <!--===== JS =====-->
-  <script defer src="assets/js/plugins/aos.js"></script>
-  <script defer src="assets/js/plugins/jquery-3-7-1.min.js"></script>
-  <script defer src="assets/js/plugins/magnific-popup.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      if (!window.jQuery) return;
-      jQuery('.sd-gallery').each(function () {
-        jQuery(this).magnificPopup({ delegate: 'a', type: 'image', gallery: { enabled: true }, mainClass: 'mfp-fade' });
-      });
-    });
-  </script>
   <script defer src="assets/js/sudar.js"></script>
 </body>
 

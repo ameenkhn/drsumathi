@@ -4,14 +4,6 @@
 
   document.addEventListener("DOMContentLoaded", function () {
 
-    /* ---- Preloader ---- */
-    var pre = document.querySelector(".sd-preload");
-    window.addEventListener("load", function () {
-      if (pre) setTimeout(function () { pre.classList.add("is-done"); }, 250);
-    });
-    // safety fallback
-    setTimeout(function () { if (pre) pre.classList.add("is-done"); }, 2500);
-
     /* ---- Mobile drawer ---- */
     var burger = document.querySelector(".sd-burger");
     var drawer = document.querySelector(".sd-drawer");
@@ -132,7 +124,137 @@
       video.addEventListener("play", started);         // e.g. keyboard / native controls
     });
 
-    /* ---- AOS ---- */
-    if (window.AOS) window.AOS.init({ duration: 700, once: true, offset: 80, disable: window.innerWidth < 640 });
+    /* ---- Scroll reveal ----
+       Stands in for the AOS plugin: same data-aos / data-aos-delay attributes,
+       same motion. Nothing is hidden until this runs, and only on screens
+       ≥640px with motion allowed — phones and no-JS visitors get the content
+       immediately. Whatever is already on screen is left as-is so the first
+       view is never blanked out and faded back in. */
+    var reveal = document.querySelectorAll("[data-aos]");
+    var motionOK = !(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    if (reveal.length && "IntersectionObserver" in window && window.innerWidth >= 640 && motionOK) {
+      var ro = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var el = e.target, delay = parseInt(el.getAttribute("data-aos-delay"), 10) || 0;
+          ro.unobserve(el);
+          el.style.transitionDelay = delay + "ms";
+          el.classList.add("is-anim", "is-in");
+          /* hand the element back to its own hover transitions once it has landed */
+          setTimeout(function () { el.classList.remove("is-anim"); el.style.transitionDelay = ""; }, delay + 750);
+        });
+      }, { rootMargin: "0px 0px -80px 0px" });
+      var vh = window.innerHeight, pending = [];
+      reveal.forEach(function (el) {
+        if (el.getBoundingClientRect().top < vh) el.classList.add("is-in");
+        else { pending.push(el); ro.observe(el); }
+      });
+      document.documentElement.classList.add("sd-reveal");
+      /* the observer only reports crossings — a jump (End key, #anchor link, fast
+         fling) can carry an element from below the fold to above it without one,
+         leaving it invisible. Sweep those up as the page scrolls. */
+      var sweepQueued = false;
+      window.addEventListener("scroll", function () {
+        if (sweepQueued || !pending.length) return;
+        sweepQueued = true;
+        requestAnimationFrame(function () {
+          sweepQueued = false;
+          pending = pending.filter(function (el) {
+            if (el.classList.contains("is-in")) return false;
+            if (el.getBoundingClientRect().bottom < 0) { el.classList.add("is-in"); ro.unobserve(el); return false; }
+            return true;
+          });
+        });
+      }, { passive: true });
+    }
+
+    /* ---- Gallery lightbox ----
+       Each .sd-gallery is its own set, so prev/next stay within the section
+       that was clicked. Modified clicks (new tab etc.) still follow the link. */
+    var galleries = document.querySelectorAll(".sd-gallery");
+    if (galleries.length) {
+      var icon = function (d) { return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="' + d + '"/></svg>'; };
+      var lb = document.createElement("div");
+      lb.className = "sd-lb";
+      lb.hidden = true;
+      lb.setAttribute("role", "dialog");
+      lb.setAttribute("aria-modal", "true");
+      lb.setAttribute("aria-label", "Photo viewer");
+      lb.innerHTML =
+        '<figure class="sd-lb__fig"><img class="sd-lb__img" alt=""><figcaption class="sd-lb__cap"></figcaption></figure>' +
+        '<div class="sd-lb__count" aria-live="polite"></div>' +
+        '<button type="button" class="sd-lb__btn sd-lb__close" aria-label="Close">' + icon("M6 6l12 12M18 6L6 18") + "</button>" +
+        '<button type="button" class="sd-lb__btn sd-lb__prev" aria-label="Previous photo">' + icon("M15 5l-7 7 7 7") + "</button>" +
+        '<button type="button" class="sd-lb__btn sd-lb__next" aria-label="Next photo">' + icon("M9 5l7 7-7 7") + "</button>";
+      document.body.appendChild(lb);
+      var lbImg = lb.querySelector(".sd-lb__img"), lbCap = lb.querySelector(".sd-lb__cap"), lbCount = lb.querySelector(".sd-lb__count");
+      var set = [], idx = 0, opener = null, closeTimer;
+
+      function show(i) {
+        idx = (i + set.length) % set.length;
+        var a = set[idx], img = a.querySelector("img"), cap = a.querySelector(".sd-gallery__cap");
+        lbImg.src = a.getAttribute("href");
+        lbImg.alt = img ? img.alt : "";
+        lbCap.textContent = cap ? cap.textContent : "";
+        lbCount.textContent = (idx + 1) + " / " + set.length;
+        [set[(idx + 1) % set.length], set[(idx - 1 + set.length) % set.length]].forEach(function (n) {
+          new Image().src = n.getAttribute("href");   // warm the neighbours so paging is instant
+        });
+      }
+      function openLb(links, i, trigger) {
+        clearTimeout(closeTimer);
+        set = links; opener = trigger;
+        lb.classList.toggle("is-single", set.length < 2);
+        show(i);
+        lb.hidden = false;
+        void lb.offsetWidth;   // commit the display change so the fade runs
+        lb.classList.add("is-open");
+        document.body.style.overflow = "hidden";
+        lb.querySelector(".sd-lb__close").focus();
+      }
+      function closeLb() {
+        if (lb.hidden) return;
+        lb.classList.remove("is-open");
+        document.body.style.overflow = "";
+        closeTimer = setTimeout(function () { lb.hidden = true; lbImg.removeAttribute("src"); }, 250);
+        if (opener) opener.focus();
+      }
+
+      galleries.forEach(function (g) {
+        var links = Array.prototype.slice.call(g.querySelectorAll("a[href]"));
+        links.forEach(function (a, i) {
+          a.addEventListener("click", function (e) {
+            if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+            e.preventDefault();
+            openLb(links, i, a);
+          });
+        });
+      });
+      lb.querySelector(".sd-lb__close").addEventListener("click", closeLb);
+      lb.querySelector(".sd-lb__prev").addEventListener("click", function () { show(idx - 1); });
+      lb.querySelector(".sd-lb__next").addEventListener("click", function () { show(idx + 1); });
+      lb.addEventListener("click", function (e) { if (e.target === lb || e.target.classList.contains("sd-lb__fig")) closeLb(); });
+      document.addEventListener("keydown", function (e) {
+        if (lb.hidden) return;
+        if (e.key === "Escape") closeLb();
+        else if (e.key === "ArrowLeft") show(idx - 1);
+        else if (e.key === "ArrowRight") show(idx + 1);
+        else if (e.key === "Tab") {   // keep focus inside the dialog
+          var btns = Array.prototype.slice.call(lb.querySelectorAll("button")).filter(function (b) { return b.offsetParent; });
+          var first = btns[0], last = btns[btns.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+      });
+      /* swipe left / right on touch screens */
+      var x0 = null;
+      lb.addEventListener("touchstart", function (e) { x0 = e.touches.length === 1 ? e.touches[0].clientX : null; }, { passive: true });
+      lb.addEventListener("touchend", function (e) {
+        if (x0 === null || set.length < 2) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 45) show(idx + (dx < 0 ? 1 : -1));
+        x0 = null;
+      });
+    }
   });
 })();
